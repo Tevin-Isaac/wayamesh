@@ -1,19 +1,21 @@
 export default function Footer() {
   return (
-    <footer className="border-t border-[rgba(62,217,184,0.1)] py-[50px] mt-20">
-      <div className="max-w-[1200px] mx-auto px-10">
-        <div className="flex justify-between items-center mb-5">
-          <div className="font-bold text-base text-[#F5F4F2]">wayamesh</div>
+    <footer style={{ borderTop: '1px solid rgba(62,217,184,0.1)', padding: '50px 0', marginTop: '80px' }}>
+      <div className="waya-container">
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+          <div style={{ fontWeight: 700, fontSize: '16px', color: '#F5F4F2' }}>wayamesh</div>
           <a
             href="https://x.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#F5F4F2] opacity-70 hover:opacity-100 hover:text-[#3ED9B8] transition-all"
+            style={{ color: '#F5F4F2', textDecoration: 'none', opacity: 0.7, transition: 'all 0.3s' }}
+            onMouseEnter={e => { const el = e.currentTarget; el.style.opacity = '1'; el.style.color = '#3ED9B8'; }}
+            onMouseLeave={e => { const el = e.currentTarget; el.style.opacity = '0.7'; el.style.color = '#F5F4F2'; }}
           >
-            <i className="ti ti-brand-x text-2xl" />
+            <i className="ti ti-brand-x" style={{ fontSize: '24px' }} />
           </a>
         </div>
-        <div className="text-center text-xs text-[#A0A0A0]">
+        <div style={{ textAlign: 'center', fontSize: '12px', color: '#A0A0A0' }}>
           © 2026 Wayamesh. Offline-first USDC payments on Arc.
         </div>
       </div>

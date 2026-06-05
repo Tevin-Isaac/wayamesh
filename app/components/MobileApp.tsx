@@ -1,40 +1,43 @@
 export default function MobileApp() {
   const screens = [
-    { label: "Balance & Recent TXs", title: "Dashboard" },
-    { label: "Offline Payments", title: "Send" },
-    { label: "AI Working", title: "Agent" },
+    { label: 'Balance & Recent TXs', title: 'Dashboard' },
+    { label: 'Offline Payments', title: 'Send' },
+    { label: 'AI Working', title: 'Agent' },
   ];
 
   return (
-    <section id="mobile-app" className="py-[100px] border-t border-[rgba(62,217,184,0.1)]">
-      <div className="max-w-[1200px] mx-auto px-10">
-        <h2 className="text-[42px] font-extrabold mb-4 text-center text-[#F5F4F2]">
+    <section id="mobile-app" className="waya-section">
+      <div className="waya-container">
+        <h2 style={{ fontSize: '42px', fontWeight: 800, marginBottom: '60px', textAlign: 'center', color: '#F5F4F2' }}>
           Money flows offline. Freedom in your pocket.
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[30px] mt-[60px] mb-[50px]">
-          {screens.map((screen, idx) => (
-            <div key={idx} className="text-center">
-              <div
-                className="bg-[rgba(62,217,184,0.1)] border border-[rgba(62,217,184,0.2)] rounded-2xl flex items-center justify-center text-[#A0A0A0] text-sm"
-                style={{ aspectRatio: '9/16', minHeight: '500px' }}
-              >
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '30px', marginBottom: '50px' }}>
+          {screens.map((screen, i) => (
+            <div key={i} style={{ textAlign: 'center' }}>
+              <div style={{ background: 'rgba(62,217,184,0.1)', border: '1px solid rgba(62,217,184,0.2)', borderRadius: '16px', aspectRatio: '9/16', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#A0A0A0', fontSize: '14px', minHeight: '400px' }}>
                 {screen.title}
               </div>
-              <div className="mt-4 text-sm font-bold text-[#3ED9B8]">{screen.label}</div>
+              <div style={{ marginTop: '16px', fontSize: '14px', fontWeight: 700, color: '#3ED9B8' }}>{screen.label}</div>
             </div>
           ))}
         </div>
 
-        <div className="flex gap-5 justify-center flex-wrap">
-          <button className="px-8 py-3.5 border-2 border-[#3ED9B8] bg-[rgba(62,217,184,0.1)] text-[#3ED9B8] rounded-xl font-bold text-sm flex items-center gap-2.5 cursor-pointer transition-all hover:bg-[#3ED9B8] hover:text-[#07070F]">
-            <i className="ti ti-brand-apple text-[22px]" />
-            Download on App Store
-          </button>
-          <button className="px-8 py-3.5 border-2 border-[#3ED9B8] bg-[rgba(62,217,184,0.1)] text-[#3ED9B8] rounded-xl font-bold text-sm flex items-center gap-2.5 cursor-pointer transition-all hover:bg-[#3ED9B8] hover:text-[#07070F]">
-            <i className="ti ti-brand-google-play text-[22px]" />
-            Get it on Google Play
-          </button>
+        <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          {[
+            { icon: 'ti-brand-apple', label: 'Download on App Store' },
+            { icon: 'ti-brand-google-play', label: 'Get it on Google Play' },
+          ].map((btn, i) => (
+            <button
+              key={i}
+              style={{ padding: '14px 32px', border: '2px solid #3ED9B8', background: 'rgba(62,217,184,0.1)', color: '#3ED9B8', borderRadius: '12px', fontWeight: 700, fontSize: '14px', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px', transition: 'all 0.3s' }}
+              onMouseEnter={e => { const el = e.currentTarget; el.style.background = '#3ED9B8'; el.style.color = '#07070F'; }}
+              onMouseLeave={e => { const el = e.currentTarget; el.style.background = 'rgba(62,217,184,0.1)'; el.style.color = '#3ED9B8'; }}
+            >
+              <i className={`ti ${btn.icon}`} style={{ fontSize: '22px' }} />
+              {btn.label}
+            </button>
+          ))}
         </div>
       </div>
     </section>

@@ -1,8 +1,15 @@
 export default function Navigation() {
   return (
-    <nav className="sticky top-0 z-50 py-5 border-b border-[rgba(62,217,184,0.1)] bg-[#07070F]">
-      <div className="max-w-[1200px] mx-auto px-10 flex justify-between items-center">
-        <div className="flex items-center gap-3 font-bold text-lg">
+    <nav style={{
+      padding: '20px 0',
+      borderBottom: '1px solid rgba(62,217,184,0.1)',
+      position: 'sticky',
+      top: 0,
+      background: '#07070F',
+      zIndex: 100,
+    }}>
+      <div className="waya-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontWeight: 700, fontSize: '18px' }}>
           <svg width="36" height="36" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <radialGradient id="fadeGradient" cx="50%" cy="50%" r="60%">
@@ -29,17 +36,19 @@ export default function Navigation() {
           wayamesh
         </div>
 
-        <div className="hidden md:flex gap-10">
+        <div style={{ display: 'flex', gap: '40px' }}>
           {[
-            { label: "The story", href: "#story" },
-            { label: "How it works", href: "#how" },
-            { label: "FAQ", href: "#faq" },
-            { label: "Try it", href: "#mobile-app" },
+            { label: 'The story', href: '#story' },
+            { label: 'How it works', href: '#how' },
+            { label: 'FAQ', href: '#faq' },
+            { label: 'Try it', href: '#mobile-app' },
           ].map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-[#F5F4F2] opacity-80 hover:opacity-100 hover:text-[#3ED9B8] transition-all no-underline"
+              style={{ color: '#F5F4F2', textDecoration: 'none', fontSize: '14px', opacity: 0.8, transition: 'all 0.3s' }}
+              onMouseEnter={e => { (e.target as HTMLAnchorElement).style.opacity = '1'; (e.target as HTMLAnchorElement).style.color = '#3ED9B8'; }}
+              onMouseLeave={e => { (e.target as HTMLAnchorElement).style.opacity = '0.8'; (e.target as HTMLAnchorElement).style.color = '#F5F4F2'; }}
             >
               {link.label}
             </a>

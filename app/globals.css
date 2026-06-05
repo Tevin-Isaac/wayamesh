@@ -30,6 +30,27 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
+/* Reliable container — used by all sections */
+.waya-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+/* Section base */
+.waya-section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  border-top: 1px solid rgba(62, 217, 184, 0.1);
+}
+
+@media (max-width: 768px) {
+  .waya-container { padding-left: 20px; padding-right: 20px; }
+  .waya-section { padding-top: 60px; padding-bottom: 60px; }
+}
+
 @keyframes fadeInDown {
   from {
     opacity: 0;
