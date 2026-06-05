@@ -1,17 +1,9 @@
 export default function Navigation() {
-  const navLinks = [
-    { label: "The story", href: "#story" },
-    { label: "How it works", href: "#how" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Try it", href: "#mobile-app" },
-  ];
-
   return (
-    <nav className="sticky top-0 z-50 border-b border-[rgba(62,217,184,0.1)] bg-[var(--bg)] backdrop-blur-sm">
-      <div className="max-w-6xl mx-auto px-10 py-4 flex justify-between items-center">
-        {/* Logo */}
-        <div className="flex items-center gap-3 font-bold text-base">
-          <svg width="32" height="32" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+    <nav className="sticky top-0 z-50 py-5 border-b border-[rgba(62,217,184,0.1)] bg-[#07070F]">
+      <div className="max-w-[1200px] mx-auto px-10 flex justify-between items-center">
+        <div className="flex items-center gap-3 font-bold text-lg">
+          <svg width="36" height="36" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <radialGradient id="fadeGradient" cx="50%" cy="50%" r="60%">
                 <stop offset="0%" stopColor="#3ED9B8" stopOpacity="1" />
@@ -37,13 +29,17 @@ export default function Navigation() {
           wayamesh
         </div>
 
-        {/* Nav Links */}
-        <div className="flex gap-8">
-          {navLinks.map((link) => (
+        <div className="hidden md:flex gap-10">
+          {[
+            { label: "The story", href: "#story" },
+            { label: "How it works", href: "#how" },
+            { label: "FAQ", href: "#faq" },
+            { label: "Try it", href: "#mobile-app" },
+          ].map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm opacity-80 hover:opacity-100 hover:text-[var(--accent)] transition-all"
+              className="text-sm text-[#F5F4F2] opacity-80 hover:opacity-100 hover:text-[#3ED9B8] transition-all no-underline"
             >
               {link.label}
             </a>

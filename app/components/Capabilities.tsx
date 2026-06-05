@@ -1,39 +1,28 @@
 export default function Capabilities() {
   const capabilities = [
-    {
-      icon: "ti-wifi-off",
-      title: "Offline first",
-      description: "Send USDC without internet via mesh network"
-    },
-    {
-      icon: "ti-brain",
-      title: "AI agents",
-      description: "Smart agents run locally on your phone"
-    },
-    {
-      icon: "ti-coin",
-      title: "Nano payments",
-      description: "Send amounts as small as $0.000001"
-    },
-    {
-      icon: "ti-zap",
-      title: "Zero fees",
-      description: "No transaction costs. Ever."
-    }
+    { icon: "ti-wifi-off", title: "Offline first", desc: "Send money anywhere, no internet needed." },
+    { icon: "ti-robot", title: "AI agents", desc: "On-device agents validate & settle automatically." },
+    { icon: "ti-coin", title: "Nano payments", desc: "USDC to 6 decimals. Send $0.000001." },
+    { icon: "ti-zap", title: "Zero fees", desc: "Arc native USDC. No intermediaries." },
   ];
 
   return (
-    <section className="py-16 border-t border-b border-[rgba(62,217,184,0.1)] max-w-4xl mx-auto px-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-        {capabilities.map((cap, idx) => (
-          <div key={idx} className="px-6 py-8">
-            <div className="text-4xl text-[var(--accent)] mb-4 flex justify-center">
-              <i className={`ti ${cap.icon}`} />
+    <section id="capabilities" className="py-[100px] border-t border-[rgba(62,217,184,0.1)]">
+      <div className="max-w-[1200px] mx-auto px-10">
+        <h2 className="text-[42px] font-extrabold mb-4 text-center text-[#F5F4F2]">Why Wayamesh</h2>
+
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-[30px] mt-[60px]">
+          {capabilities.map((cap, idx) => (
+            <div
+              key={idx}
+              className="bg-[rgba(62,217,184,0.05)] border border-[rgba(62,217,184,0.15)] rounded-xl p-8 text-center"
+            >
+              <i className={`ti ${cap.icon} text-[40px] text-[#3ED9B8] block mb-4`} />
+              <h4 className="text-base text-[#3ED9B8] font-bold mb-3">{cap.title}</h4>
+              <p className="text-[13px] text-[#A0A0A0]">{cap.desc}</p>
             </div>
-            <h3 className="text-lg font-semibold mb-2 text-[var(--text)]">{cap.title}</h3>
-            <p className="text-sm text-[var(--text)] opacity-80">{cap.description}</p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
