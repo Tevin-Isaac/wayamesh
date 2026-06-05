@@ -1,86 +1,92 @@
 export default function MobileApp() {
-  const screens = [
-    { label: 'Balance & Recent TXs', title: 'Dashboard' },
-    { label: 'Offline Payments', title: 'Send' },
-    { label: 'AI Working', title: 'Agent' },
-  ];
-
   return (
     <section id="mobile-app" className="waya-section">
-      <div className="waya-container">
-        <h2 style={{ fontSize: '42px', fontWeight: 800, marginBottom: '16px', textAlign: 'center', color: '#F5F4F2' }}>
+      <div className="waya-container" style={{ textAlign: 'center' }}>
+        <h2 style={{ fontSize: '42px', fontWeight: 800, marginBottom: '16px', color: '#F5F4F2' }}>
           Money flows offline. Freedom in your pocket.
         </h2>
-        <p style={{ fontSize: '18px', color: '#A0A0A0', textAlign: 'center', marginBottom: '60px' }}>
+        <p style={{ fontSize: '18px', color: '#A0A0A0', marginBottom: '60px' }}>
           Available on iOS & Android
         </p>
 
-        {/* Phone mockups */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '40px', marginBottom: '50px', flexWrap: 'wrap' }}>
-          {screens.map((screen, i) => (
-            <div key={i} style={{ textAlign: 'center' }}>
-              {/* Phone frame */}
-              <div style={{
-                width: '200px',
-                height: '400px',
-                background: 'rgba(62,217,184,0.06)',
-                border: '2px solid rgba(62,217,184,0.3)',
-                borderRadius: '32px',
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                position: 'relative',
-                overflow: 'hidden',
-                boxShadow: '0 0 40px rgba(62,217,184,0.08)',
-              }}>
-                {/* Phone notch */}
-                <div style={{
-                  position: 'absolute',
-                  top: '16px',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  width: '60px',
-                  height: '8px',
-                  background: 'rgba(62,217,184,0.3)',
-                  borderRadius: '4px',
-                }} />
-                {/* Screen content placeholder */}
-                <div style={{ textAlign: 'center', padding: '20px' }}>
-                  <div style={{ fontSize: '36px', marginBottom: '12px', opacity: 0.4 }}>
-                    {i === 0 ? '💳' : i === 1 ? '📤' : '🤖'}
-                  </div>
-                  <div style={{ fontSize: '11px', color: '#A0A0A0', opacity: 0.6 }}>App screenshot</div>
-                </div>
-                {/* Bottom home indicator */}
-                <div style={{
-                  position: 'absolute',
-                  bottom: '12px',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  width: '40px',
-                  height: '4px',
-                  background: 'rgba(62,217,184,0.3)',
-                  borderRadius: '2px',
-                }} />
+        {/* Phone row — side phones smaller + offset, center phone featured */}
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', gap: '24px', marginBottom: '50px' }}>
+
+          {/* Left phone */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+            <div style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.07em', textTransform: 'uppercase', color: '#A0A0A0' }}>Dashboard</div>
+            <div style={{
+              width: '155px', height: '300px', borderRadius: '28px',
+              border: '2px solid rgba(62,217,184,0.15)',
+              background: '#0D0D1A',
+              position: 'relative', overflow: 'hidden',
+              opacity: 0.85,
+              transform: 'scale(0.93) translateY(12px)',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
+            }}>
+              <div style={{ width: '50px', height: '10px', background: '#07070F', border: '1.5px solid rgba(255,255,255,0.08)', borderRadius: '0 0 10px 10px', position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', zIndex: 2 }} />
+              <div style={{ position: 'absolute', inset: 0, paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ fontSize: '13px', color: '#A0A0A0', opacity: 0.5 }}>Balance & TXs</span>
               </div>
-              <div style={{ marginTop: '16px', fontSize: '13px', fontWeight: 700, color: '#3ED9B8' }}>{screen.label}</div>
-              <div style={{ marginTop: '4px', fontSize: '12px', color: '#A0A0A0' }}>{screen.title}</div>
             </div>
-          ))}
+          </div>
+
+          {/* Center phone — featured */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+            <div style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.07em', textTransform: 'uppercase', color: '#3ED9B8' }}>Send</div>
+            <div style={{
+              width: '175px', height: '340px', borderRadius: '28px',
+              border: '2px solid rgba(62,217,184,0.35)',
+              background: '#0D0D1A',
+              position: 'relative', overflow: 'hidden',
+              boxShadow: '0 0 0 1px rgba(62,217,184,0.15), 0 20px 80px rgba(62,217,184,0.18), 0 30px 70px rgba(0,0,0,0.6)',
+            }}>
+              <div style={{ width: '50px', height: '10px', background: '#07070F', border: '1.5px solid rgba(255,255,255,0.08)', borderRadius: '0 0 10px 10px', position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', zIndex: 2 }} />
+              <div style={{ position: 'absolute', inset: 0, paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ fontSize: '13px', color: '#A0A0A0', opacity: 0.5 }}>Offline Payments</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right phone */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+            <div style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.07em', textTransform: 'uppercase', color: '#A0A0A0' }}>Agent</div>
+            <div style={{
+              width: '155px', height: '300px', borderRadius: '28px',
+              border: '2px solid rgba(62,217,184,0.15)',
+              background: '#0D0D1A',
+              position: 'relative', overflow: 'hidden',
+              opacity: 0.85,
+              transform: 'scale(0.93) translateY(12px)',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
+            }}>
+              <div style={{ width: '50px', height: '10px', background: '#07070F', border: '1.5px solid rgba(255,255,255,0.08)', borderRadius: '0 0 10px 10px', position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', zIndex: 2 }} />
+              <div style={{ position: 'absolute', inset: 0, paddingTop: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ fontSize: '13px', color: '#A0A0A0', opacity: 0.5 }}>AI Working</span>
+              </div>
+            </div>
+          </div>
+
         </div>
 
-        {/* Download buttons */}
-        <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
+        {/* Store buttons */}
+        <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
           <button className="download-btn">
             <i className="ti ti-brand-apple" style={{ fontSize: '22px' }} />
-            Download on App Store
+            <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+              <span style={{ fontSize: '10px', color: '#A0A0A0', lineHeight: 1.2 }}>Download on the</span>
+              <span style={{ fontSize: '14px', fontWeight: 700, lineHeight: 1.3 }}>App Store</span>
+            </div>
           </button>
           <button className="download-btn">
             <i className="ti ti-brand-google-play" style={{ fontSize: '22px' }} />
-            Get it on Google Play
+            <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
+              <span style={{ fontSize: '10px', color: '#A0A0A0', lineHeight: 1.2 }}>Get it on</span>
+              <span style={{ fontSize: '14px', fontWeight: 700, lineHeight: 1.3 }}>Google Play</span>
+            </div>
           </button>
         </div>
+
       </div>
     </section>
   );
