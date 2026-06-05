@@ -4,14 +4,7 @@ export default function Footer() {
       <div className="waya-container">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
           <div style={{ fontWeight: 700, fontSize: '16px', color: '#F5F4F2' }}>wayamesh</div>
-          <a
-            href="https://x.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: '#F5F4F2', textDecoration: 'none', opacity: 0.7, transition: 'all 0.3s' }}
-            onMouseEnter={e => { const el = e.currentTarget; el.style.opacity = '1'; el.style.color = '#3ED9B8'; }}
-            onMouseLeave={e => { const el = e.currentTarget; el.style.opacity = '0.7'; el.style.color = '#F5F4F2'; }}
-          >
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer" className="footer-social">
             <i className="ti ti-brand-x" style={{ fontSize: '24px' }} />
           </a>
         </div>

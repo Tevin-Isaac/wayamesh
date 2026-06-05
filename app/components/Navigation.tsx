@@ -1,13 +1,6 @@
 export default function Navigation() {
   return (
-    <nav style={{
-      padding: '20px 0',
-      borderBottom: '1px solid rgba(62,217,184,0.1)',
-      position: 'sticky',
-      top: 0,
-      background: '#07070F',
-      zIndex: 100,
-    }}>
+    <nav style={{ padding: '20px 0', borderBottom: '1px solid rgba(62,217,184,0.1)', position: 'sticky', top: 0, background: '#07070F', zIndex: 100 }}>
       <div className="waya-container" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', fontWeight: 700, fontSize: '18px' }}>
           <svg width="36" height="36" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -35,24 +28,11 @@ export default function Navigation() {
           </svg>
           wayamesh
         </div>
-
         <div style={{ display: 'flex', gap: '40px' }}>
-          {[
-            { label: 'The story', href: '#story' },
-            { label: 'How it works', href: '#how' },
-            { label: 'FAQ', href: '#faq' },
-            { label: 'Try it', href: '#mobile-app' },
-          ].map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              style={{ color: '#F5F4F2', textDecoration: 'none', fontSize: '14px', opacity: 0.8, transition: 'all 0.3s' }}
-              onMouseEnter={e => { (e.target as HTMLAnchorElement).style.opacity = '1'; (e.target as HTMLAnchorElement).style.color = '#3ED9B8'; }}
-              onMouseLeave={e => { (e.target as HTMLAnchorElement).style.opacity = '0.8'; (e.target as HTMLAnchorElement).style.color = '#F5F4F2'; }}
-            >
-              {link.label}
-            </a>
-          ))}
+          <a href="#story" className="nav-link">The story</a>
+          <a href="#how" className="nav-link">How it works</a>
+          <a href="#faq" className="nav-link">FAQ</a>
+          <a href="#mobile-app" className="nav-link">Try it</a>
         </div>
       </div>
     </nav>
