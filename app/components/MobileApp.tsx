@@ -71,18 +71,25 @@ export default function MobileApp() {
 
         {/* Store buttons */}
         <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <button className="download-btn">
-            <i className="ti ti-brand-apple" style={{ fontSize: '22px' }} />
-            <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-              <span style={{ fontSize: '10px', color: '#A0A0A0', lineHeight: 1.2 }}>Download on the</span>
-              <span style={{ fontSize: '14px', fontWeight: 700, lineHeight: 1.3 }}>App Store</span>
+          {/* App Store */}
+          <button className="download-btn" style={{ minWidth: '180px' }}>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}>
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
+            </svg>
+            <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left', lineHeight: 1 }}>
+              <span style={{ fontSize: '10px', opacity: 0.7, marginBottom: '2px' }}>Download on the</span>
+              <span style={{ fontSize: '16px', fontWeight: 700 }}>App Store</span>
             </div>
           </button>
-          <button className="download-btn">
-            <i className="ti ti-brand-google-play" style={{ fontSize: '22px' }} />
-            <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left' }}>
-              <span style={{ fontSize: '10px', color: '#A0A0A0', lineHeight: 1.2 }}>Get it on</span>
-              <span style={{ fontSize: '14px', fontWeight: 700, lineHeight: 1.3 }}>Google Play</span>
+
+          {/* Google Play */}
+          <button className="download-btn" style={{ minWidth: '180px' }}>
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" style={{ flexShrink: 0 }}>
+              <path d="M3.18 23.76c.3.17.64.24.99.2L16.79 12 12.29 7.5 3.18 23.76zM20.8 10.39L17.75 8.6l-3.43 3.4 3.43 3.4 3.07-1.78a1.75 1.75 0 0 0 0-3.23zM3 1.05a1.74 1.74 0 0 0-.18.78v20.34c0 .28.06.54.18.78l.09.08 11.38-11.38v-.27L3.09.97 3 1.05zm9.29 12.37L3 23.8l.09.08c.3.16.64.22.99.18l13.67-7.86-4.46-2.78z" />
+            </svg>
+            <div style={{ display: 'flex', flexDirection: 'column', textAlign: 'left', lineHeight: 1 }}>
+              <span style={{ fontSize: '10px', opacity: 0.7, marginBottom: '2px' }}>Get it on</span>
+              <span style={{ fontSize: '16px', fontWeight: 700 }}>Google Play</span>
             </div>
           </button>
         </div>

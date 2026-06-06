@@ -69,20 +69,19 @@ body {
 
 /* DOWNLOAD BUTTONS */
 .download-btn {
-  padding: 14px 32px;
-  border: 2px solid #3ED9B8;
-  background: rgba(62,217,184,0.1);
-  color: #3ED9B8;
+  padding: 12px 20px;
+  border: 1.5px solid rgba(62,217,184,0.4);
+  background: rgba(62,217,184,0.08);
+  color: #F5F4F2;
   border-radius: 12px;
-  font-weight: 700;
-  font-size: 14px;
+  font-family: inherit;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 10px;
-  transition: all 0.3s;
+  gap: 12px;
+  transition: all 0.25s;
 }
-.download-btn:hover { background: #3ED9B8; color: #07070F; }
+.download-btn:hover { border-color: #3ED9B8; background: rgba(62,217,184,0.15); transform: translateY(-2px); }
 
 /* FOOTER LINK */
 .footer-social { color: #F5F4F2; text-decoration: none; opacity: 0.7; transition: all 0.3s; }
