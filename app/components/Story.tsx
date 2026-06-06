@@ -13,17 +13,11 @@ export default function Story() {
             <span style={{ color: '#3ED9B8' }}>People couldn&apos;t spend a cent.</span>
           </h2>
 
-          <p style={{ fontSize: '17px', color: '#888', lineHeight: 1.8, marginBottom: '1rem' }}>
-            Sudan. Myanmar. Iran. People couldn&apos;t buy food, pay rent, or send money home — even with USDC sitting in their wallets. Because every digital payment, crypto included, still needs an internet connection.
-          </p>
-
-          <p style={{ fontSize: '17px', color: '#888', lineHeight: 1.8, marginBottom: '1rem' }}>
-            That single assumption — that the internet is always there — is the vulnerability. Not the money. The pipes.
-          </p>
-
-          <p style={{ fontSize: '17px', color: '#888', lineHeight: 1.8, marginBottom: '1.8rem' }}>
-            Wayamesh removes that assumption entirely. Send USDC over Bluetooth, phone to phone, with no towers, no banks, no connection needed. A lightweight AI agent on your device handles everything offline. Settlement on Arc happens automatically — silently, in the background — whenever any device nearby finds a signal.
-          </p>
+          <div style={{ fontSize: '17px', color: '#888', lineHeight: 1.9, marginBottom: '1.6rem', display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
+            <p style={{ margin: 0 }}>Sudan. Myanmar. Iran. People couldn&apos;t buy food, pay rent, or send money home — even with USDC sitting in their wallets. Because every digital payment, crypto included, still needs an internet connection.</p>
+            <p style={{ margin: 0 }}>That single assumption — that the internet is always there — is the vulnerability. Not the money. The pipes.</p>
+            <p style={{ margin: 0 }}>Wayamesh removes that assumption entirely. Send USDC over Bluetooth, phone to phone, with no towers, no banks, no connection needed. A lightweight AI agent on your device handles everything offline. Settlement on Arc happens automatically — silently, in the background — whenever any device nearby finds a signal.</p>
+          </div>
 
           <div style={{ borderLeft: '3px solid #3ED9B8', paddingLeft: '20px' }}>
             <p style={{ fontSize: '19px', fontWeight: 700, color: '#F5F4F2', lineHeight: 1.5, fontStyle: 'italic', margin: 0 }}>
