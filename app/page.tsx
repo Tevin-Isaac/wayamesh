@@ -15,8 +15,8 @@ export default function Home() {
       <Story />
       <Capabilities />
       <HowItWorks />
-      <FAQ />
       <MobileApp />
+      <FAQ />
       <Footer />
     </>
   );

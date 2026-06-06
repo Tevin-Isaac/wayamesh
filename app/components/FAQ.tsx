@@ -2,52 +2,75 @@
 
 import { useState } from 'react';
 
-export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+const FAQS = [
+  {
+    q: 'Is my money safe?',
+    a: 'Your private keys never leave your device. Every transaction is signed locally before entering the mesh. AES-256 encrypted at rest, unlocked with biometrics. Even if a packet is intercepted mid-relay, nobody can access your funds without your key.',
+  },
+  {
+    q: 'Do you hold my funds?',
+    a: 'No. Wayamesh is fully self-custodial — we have zero access to your funds. Only your device holds your private key. No custody, no servers, no middlemen.',
+  },
+  {
+    q: 'How do agents work offline?',
+    a: 'A 4–8MB quantized AI model runs directly on your phone — no servers, no cloud, no internet. It validates amounts and recipients, estimates Arc fees, routes through the BLE mesh, and batches for settlement. When any device in the chain has connectivity, it submits to Arc automatically.',
+  },
+  {
+    q: 'Can it be blocked?',
+    a: 'The protocol is open-source and peer-to-peer. Funds settle on Arc — censorship-resistant by design. The mesh runs over Bluetooth, a standard hardware protocol that no government can selectively ban.',
+  },
+];
 
-  const faqs = [
-    { question: 'Is my money safe without internet?', answer: 'Yes. Your private keys stay on your phone and are never transmitted. Transactions are cryptographically signed locally. Even if intercepted, no one can access your funds without your private key.' },
-    { question: 'Do you have access to my money?', answer: 'No. Wayamesh is self-custodial. Your private keys stay on your phone only. Only you control your funds. This is true peer-to-peer finance.' },
-    { question: 'What if I lose my phone?', answer: 'Your funds are on the blockchain. Recover your wallet on a new phone using your seed phrase (12-24 words). Always backup your seed phrase in a safe place.' },
-    { question: 'How do agents work without internet?', answer: 'Agents run locally as a lightweight AI model. They validate, manage, and route all offline. When you connect, they sync with the blockchain.' },
-    { question: 'Can governments block Wayamesh?', answer: "They can't block the blockchain. The technology is open-source and peer-to-peer. The mesh network itself is just Bluetooth—impossible to ban universally." },
-  ];
+export default function FAQ() {
+  const [active, setActive] = useState(0);
 
   return (
-    <section id="faq" className="waya-section">
+    <section id="faq" className="faq-sec">
       <div className="waya-container">
-        <h2 style={{ fontSize: '42px', fontWeight: 800, marginBottom: '16px', textAlign: 'center', color: '#F5F4F2' }}>FAQ</h2>
-        <p style={{ fontSize: '18px', color: '#A0A0A0', textAlign: 'center', marginBottom: '60px' }}>Your money is safe. Cryptographically secure. You control everything.</p>
 
-        <div style={{ maxWidth: '900px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-          {faqs.map((faq, i) => (
-            <div
+        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
+          <h2 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#F5F4F2', lineHeight: 1 }}>
+            Frequently asked questions
+          </h2>
+        </div>
+
+        {/* Tab row */}
+        <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '24px' }}>
+          {FAQS.map((faq, i) => (
+            <button
               key={i}
-              onClick={() => setOpenIndex(openIndex === i ? null : i)}
+              onClick={() => setActive(i)}
               style={{
-                background: openIndex === i ? 'rgba(62,217,184,0.08)' : 'rgba(62,217,184,0.05)',
-                border: `1px solid ${openIndex === i ? '#3ED9B8' : 'rgba(62,217,184,0.15)'}`,
-                borderRadius: '12px',
-                padding: '28px',
+                padding: '10px 18px',
+                borderRadius: '100px',
+                border: `1px solid ${active === i ? 'rgba(62,217,184,0.5)' : 'rgba(255,255,255,0.07)'}`,
+                background: active === i ? 'rgba(62,217,184,0.1)' : 'transparent',
+                color: active === i ? '#3ED9B8' : '#666',
+                fontSize: '13px',
+                fontWeight: active === i ? 700 : 400,
                 cursor: 'pointer',
-                transition: 'all 0.3s',
+                fontFamily: 'inherit',
+                transition: 'all 0.2s',
+                whiteSpace: 'nowrap' as const,
               }}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontWeight: 700, fontSize: '16px', color: '#F5F4F2' }}>
-                {faq.question}
-                <i
-                  className="ti ti-chevron-down"
-                  style={{ color: '#3ED9B8', fontSize: '20px', transition: 'transform 0.3s', transform: openIndex === i ? 'rotate(180deg)' : 'rotate(0deg)', flexShrink: 0, marginLeft: '16px' }}
-                />
-              </div>
-              {openIndex === i && (
-                <div style={{ marginTop: '20px', paddingTop: '20px', borderTop: '1px solid rgba(62,217,184,0.1)', fontSize: '14px', color: '#A0A0A0', lineHeight: 1.8 }}>
-                  {faq.answer}
-                </div>
-              )}
-            </div>
+              {faq.q}
+            </button>
           ))}
         </div>
+
+        {/* Answer panel */}
+        <div className="faq-answer-panel" style={{
+          background: 'rgba(62,217,184,0.04)',
+          border: '1px solid rgba(62,217,184,0.15)',
+          borderRadius: '16px',
+          padding: '28px 32px',
+        }}>
+          <p style={{ fontSize: '16px', color: '#999', lineHeight: 1.75, maxWidth: '680px' }}>
+            {FAQS[active].a}
+          </p>
+        </div>
+
       </div>
     </section>
   );

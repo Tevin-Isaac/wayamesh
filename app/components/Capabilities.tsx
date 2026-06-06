@@ -1,24 +1,47 @@
 export default function Capabilities() {
   const caps = [
-    { icon: 'ti-wifi-off', title: 'Offline first', desc: 'Send money anywhere, no internet needed.' },
-    { icon: 'ti-robot', title: 'AI agents', desc: 'On-device agents validate & settle automatically.' },
-    { icon: 'ti-coin', title: 'Nano payments', desc: 'USDC to 6 decimals. Send $0.000001.' },
-    { icon: 'ti-zap', title: 'Zero fees', desc: 'Arc native USDC. No intermediaries.' },
+    {
+      icon: 'ti-cpu',
+      title: 'On-device AI agent',
+      desc: 'A 4–8MB quantized model runs entirely on your phone. It validates transactions, estimates Arc fees, routes through the mesh, and batches settlement — no internet, ever.',
+    },
+    {
+      icon: 'ti-bluetooth',
+      title: 'Bluetooth mesh relay',
+      desc: 'Signed transactions propagate peer-to-peer over BLE. Every device in range is a relay node. The mesh grows with users — no infrastructure needed.',
+    },
+    {
+      icon: 'ti-lock',
+      title: 'Self-custodial & secure',
+      desc: 'Your private keys never leave your device. AES-256 encrypted at rest, unlocked with biometrics. No keys transmitted. Ever.',
+    },
+    {
+      icon: 'ti-circle-check',
+      title: 'Arc settlement',
+      desc: 'When internet is available, your agent auto-batches pending transactions and settles USDC on Arc (Chain ID 5042002). Silent, automatic, final.',
+    },
   ];
 
   return (
     <section id="capabilities" className="waya-section">
       <div className="waya-container">
-        <h2 style={{ fontSize: '42px', fontWeight: 800, marginBottom: '60px', textAlign: 'center', color: '#F5F4F2' }}>
-          Why Wayamesh
-        </h2>
+        <div style={{ textAlign: 'center', marginBottom: '64px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(62,217,184,0.08)', border: '1px solid rgba(62,217,184,0.2)', borderRadius: '100px', padding: '5px 14px', marginBottom: '1.2rem', fontSize: '12px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: '#3ED9B8' }}>
+            Built different
+          </div>
+          <h2 style={{ fontSize: 'clamp(1.9rem, 4vw, 3rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#F5F4F2', lineHeight: 1.1 }}>
+            Why Wayamesh
+          </h2>
+        </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '30px' }}>
+        <div className="cap-grid">
           {caps.map((cap, i) => (
-            <div key={i} style={{ background: 'rgba(62,217,184,0.05)', border: '1px solid rgba(62,217,184,0.15)', borderRadius: '12px', padding: '32px', textAlign: 'center' }}>
-              <i className={`ti ${cap.icon}`} style={{ fontSize: '40px', color: '#3ED9B8', display: 'block', marginBottom: '16px' }} />
-              <h4 style={{ fontSize: '16px', color: '#3ED9B8', marginBottom: '12px', fontWeight: 700 }}>{cap.title}</h4>
-              <p style={{ fontSize: '13px', color: '#A0A0A0' }}>{cap.desc}</p>
+            <div key={i} className="cap-card">
+              <div style={{ width: '48px', height: '48px', background: 'rgba(62,217,184,0.1)', borderRadius: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', flexShrink: 0 }}>
+                <i className={`ti ${cap.icon}`} style={{ fontSize: '26px', color: '#3ED9B8' }} />
+              </div>
+              <h4 style={{ fontSize: '17px', color: '#F5F4F2', marginBottom: '10px', fontWeight: 700 }}>{cap.title}</h4>
+              <p style={{ fontSize: '14px', color: '#666', lineHeight: 1.7 }}>{cap.desc}</p>
             </div>
           ))}
         </div>

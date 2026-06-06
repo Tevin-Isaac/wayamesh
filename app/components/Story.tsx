@@ -2,33 +2,35 @@ export default function Story() {
   return (
     <section id="story" className="waya-section">
       <div className="waya-container">
-        <h2 style={{ fontSize: '42px', fontWeight: 800, marginBottom: '60px', textAlign: 'center', color: '#F5F4F2' }}>
-          The Problem & The Solution
-        </h2>
+        <div style={{ maxWidth: '680px', margin: '0 auto' }}>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '50px' }}>
-          <div style={{ background: 'rgba(62,217,184,0.05)', border: '1px solid rgba(62,217,184,0.15)', borderRadius: '16px', padding: '50px' }}>
-            <h3 style={{ fontSize: '24px', color: '#3ED9B8', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '12px', fontWeight: 700 }}>
-              <i className="ti ti-alert-circle" style={{ fontSize: '28px' }} />
-              The Problem
-            </h3>
-            <p style={{ fontSize: '15px', color: '#A0A0A0', lineHeight: 1.8 }}>
-              Governments shut down the internet. Sudan (2023), Myanmar (2021), Hong Kong (2019), Iran (2022), Egypt (2011). Your money becomes trapped. Your family can't send help. No banks work. Digital payments die.
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(62,217,184,0.08)', border: '1px solid rgba(62,217,184,0.2)', borderRadius: '100px', padding: '5px 14px', marginBottom: '1.8rem', fontSize: '12px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: '#3ED9B8' }}>
+            Why we built this
+          </div>
+
+          <h2 style={{ fontSize: 'clamp(1.9rem, 4vw, 3rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#F5F4F2', lineHeight: 1.1, marginBottom: '1.6rem' }}>
+            In 2022, governments cut the internet.<br />
+            <span style={{ color: '#3ED9B8' }}>People couldn&apos;t spend a cent.</span>
+          </h2>
+
+          <p style={{ fontSize: '17px', color: '#888', lineHeight: 1.8, marginBottom: '1rem' }}>
+            Sudan. Myanmar. Iran. People couldn&apos;t buy food, pay rent, or send money home — even with USDC sitting in their wallets. Because every digital payment, crypto included, still needs an internet connection.
+          </p>
+
+          <p style={{ fontSize: '17px', color: '#888', lineHeight: 1.8, marginBottom: '1rem' }}>
+            That single assumption — that the internet is always there — is the vulnerability. Not the money. The pipes.
+          </p>
+
+          <p style={{ fontSize: '17px', color: '#888', lineHeight: 1.8, marginBottom: '1.8rem' }}>
+            Wayamesh removes that assumption entirely. Send USDC over Bluetooth, phone to phone, with no towers, no banks, no connection needed. A lightweight AI agent on your device handles everything offline. Settlement on Arc happens automatically — silently, in the background — whenever any device nearby finds a signal.
+          </p>
+
+          <div style={{ borderLeft: '3px solid #3ED9B8', paddingLeft: '20px' }}>
+            <p style={{ fontSize: '19px', fontWeight: 700, color: '#F5F4F2', lineHeight: 1.5, fontStyle: 'italic', margin: 0 }}>
+              &ldquo;Your money works. Even when the internet doesn&apos;t.&rdquo;
             </p>
           </div>
 
-          <div style={{ background: 'rgba(62,217,184,0.05)', border: '1px solid rgba(62,217,184,0.15)', borderRadius: '16px', padding: '50px' }}>
-            <h3 style={{ fontSize: '24px', color: '#3ED9B8', marginBottom: '20px', display: 'flex', alignItems: 'center', gap: '12px', fontWeight: 700 }}>
-              <i className="ti ti-wifi" style={{ fontSize: '28px' }} />
-              The Solution
-            </h3>
-            <p style={{ fontSize: '15px', color: '#A0A0A0', lineHeight: 1.8, marginBottom: '16px' }}>
-              Wayamesh lets you send USDC via Bluetooth mesh. Works without internet. Agents relay your money through the network. Settlement happens on Arc in the background.
-            </p>
-            <p style={{ fontSize: '15px', color: '#A0A0A0', lineHeight: 1.8 }}>
-              You control your wallet. Your family receives USDC. Your freedom is unstoppable.
-            </p>
-          </div>
         </div>
       </div>
     </section>
