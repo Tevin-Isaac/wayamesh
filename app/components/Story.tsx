@@ -16,7 +16,7 @@ export default function Story() {
           <div style={{ fontSize: '17px', color: '#888', lineHeight: 1.9, marginBottom: '1.6rem', display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
             <p style={{ margin: 0 }}>Sudan. Myanmar. Iran. People couldn&apos;t buy food, pay rent, or send money home — even with USDC sitting in their wallets. Because every digital payment, crypto included, still needs an internet connection.</p>
             <p style={{ margin: 0 }}>That single assumption — that the internet is always there — is the vulnerability. Not the money. The pipes.</p>
-            <p style={{ margin: 0 }}>Wayamesh removes that assumption entirely. Send USDC over Bluetooth, phone to phone, with no towers, no banks, no connection needed. A lightweight AI agent on your device handles everything offline. Settlement on Arc happens automatically — silently, in the background — whenever any device nearby finds a signal.</p>
+            <p style={{ margin: 0 }}>Wayamesh removes that assumption from the payment itself. Send USDC over Bluetooth, phone to phone — no towers, no banks, no internet needed to send or receive. A lightweight AI agent on your device handles validation, signing, and routing entirely offline. Blockchain settlement on Arc is a background process — automatic, silent, handled by the agent whenever any device in the chain finds a connection. The payment is instant. The on-chain record follows.</p>
           </div>
 
           <div style={{ borderLeft: '3px solid #3ED9B8', paddingLeft: '20px' }}>

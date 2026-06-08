@@ -15,8 +15,8 @@ export default function HowItWorks() {
     {
       icon: 'ti-circle-check',
       num: '03',
-      title: 'Silent Arc settlement',
-      desc: 'Whenever any device in the chain has internet, the agent auto-batches pending transactions and submits them to Arc. USDC settles on-chain. No action needed from you — the agent handles everything.',
+      title: 'Automatic Arc settlement',
+      desc: 'The payment already transferred the moment it was signed and relayed. Settlement on Arc is just the on-chain record — your agent handles it silently in the background whenever any device in the chain finds a connection. No action needed from you.',
     },
   ];
 

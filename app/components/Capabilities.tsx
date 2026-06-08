@@ -3,7 +3,7 @@ export default function Capabilities() {
     {
       icon: 'ti-cpu',
       title: 'On-device AI agent',
-      desc: 'A 4–8MB quantized model runs entirely on your phone. It validates transactions, estimates Arc fees, routes through the mesh, and batches settlement — no internet, ever.',
+      desc: 'A 4–8MB quantized model runs entirely on your phone. It validates transactions, estimates Arc fees, and routes through the mesh — no internet needed to send or receive a payment.',
     },
     {
       icon: 'ti-bluetooth',
@@ -18,7 +18,7 @@ export default function Capabilities() {
     {
       icon: 'ti-circle-check',
       title: 'Arc settlement',
-      desc: 'When internet is available, your agent auto-batches pending transactions and settles USDC on Arc (Chain ID 5042002). Silent, automatic, final.',
+      desc: 'Your agent monitors for connectivity in the background. When any device in the chain finds a signal, it batches and submits to Arc automatically. You never touch it.',
     },
   ];
 

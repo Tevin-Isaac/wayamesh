@@ -245,7 +245,7 @@ export default function Hero() {
           </h1>
 
           <p className="hero-sub">
-            A 4MB AI agent on your device validates, signs, and routes your payment through the Bluetooth mesh — entirely offline. No towers. No banks. No internet. Not even for the agent.
+            A 4MB AI agent on your device validates, signs, and routes your payment through the Bluetooth mesh — no internet needed to send or receive. Arc settlement runs automatically in the background, whenever any device finds a connection.
           </p>
 
           <button className="hero-cta">Download the app</button>

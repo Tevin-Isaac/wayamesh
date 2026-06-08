@@ -13,7 +13,7 @@ const FAQS = [
   },
   {
     q: 'How do agents work offline?',
-    a: 'A 4–8MB quantized AI model runs directly on your phone — no servers, no cloud, no internet. It validates amounts and recipients, estimates Arc fees, routes through the BLE mesh, and batches for settlement. When any device in the chain has connectivity, it submits to Arc automatically.',
+    a: 'A 4–8MB quantized AI model runs directly on your phone — no servers, no cloud. No internet is needed to send, receive, or route a payment. The agent validates, signs, and relays everything offline. Arc settlement is a separate background process — the agent handles it automatically when any device in the chain finds a connection. You never need to think about it.',
   },
   {
     q: 'Can it be blocked?',
