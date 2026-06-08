@@ -2,14 +2,14 @@ export default function MobileApp() {
   return (
     <section id="mobile-app" className="waya-section">
       <div className="waya-container" style={{ textAlign: 'center' }}>
-        <h2 style={{ fontSize: '42px', fontWeight: 800, marginBottom: '16px', color: '#F5F4F2' }}>
-          Money flows offline. Freedom in your pocket.
+        <h2 style={{ fontSize: 'clamp(1.7rem, 5vw, 2.6rem)', fontWeight: 800, marginBottom: '12px', color: '#F5F4F2', letterSpacing: '-0.03em', lineHeight: 1.15 }}>
+          Money flows offline.<br />Freedom in your pocket.
         </h2>
-        <p style={{ fontSize: '18px', color: '#A0A0A0', marginBottom: '60px' }}>
+        <p style={{ fontSize: '16px', color: '#A0A0A0', marginBottom: 'clamp(32px, 6vw, 52px)' }}>
           Available on iOS &amp; Android
         </p>
 
-        <div className="phone-row" style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', gap: '24px', marginBottom: '50px' }}>
+        <div className="phone-row" style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', gap: '24px', marginBottom: 'clamp(28px, 5vw, 50px)' }}>
 
           {/* ── LEFT PHONE — Dashboard ── */}
           <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
