@@ -17,7 +17,10 @@ export default function FadeIn({ children, delay = 0, duration = 0.7, x = 0, y =
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (
+      typeof IntersectionObserver === 'undefined' ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
       setVisible(true);
       return;
     }

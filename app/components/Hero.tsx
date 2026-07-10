@@ -34,7 +34,7 @@ export default function Hero() {
           autoPlay={i === 0}
           muted
           playsInline
-          preload="auto"
+          preload={i === 0 ? 'auto' : 'metadata'}
           poster={v.poster}
           onEnded={i === active ? playNext : undefined}
           aria-hidden="true"

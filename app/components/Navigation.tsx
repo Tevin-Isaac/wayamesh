@@ -100,7 +100,14 @@ export default function Navigation() {
               aria-expanded={langOpen}
               title={current.name}
             >
-              <span className="lang-flag" style={{ fontSize: '20px' }}>{current.flag}</span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`https://flagcdn.com/w40/${current.country}.png`}
+                alt={current.name}
+                width={22}
+                height={16}
+                style={{ borderRadius: '3px', display: 'block' }}
+              />
             </button>
             {langOpen && (
               <div className="lang-menu">
@@ -110,7 +117,14 @@ export default function Navigation() {
                     className={`lang-option${l.code === lang ? ' lang-option-active' : ''}`}
                     onClick={() => { setLang(l.code); setLangOpen(false); }}
                   >
-                    <span className="lang-flag">{l.flag}</span>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`https://flagcdn.com/w40/${l.country}.png`}
+                      alt=""
+                      width={20}
+                      height={15}
+                      style={{ borderRadius: '3px', display: 'block' }}
+                    />
                     {l.name}
                   </button>
                 ))}

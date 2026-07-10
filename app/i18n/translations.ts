@@ -740,15 +740,17 @@ export const translations = {
 export type Lang = keyof typeof translations;
 export type Dict = (typeof translations)['en'];
 
-export const LANGS: { code: Lang; flag: string; name: string }[] = [
-  { code: 'en', flag: '🇺🇸', name: 'English' },
-  { code: 'sw', flag: '🇰🇪', name: 'Kiswahili' },
-  { code: 'fr', flag: '🇫🇷', name: 'Français' },
-  { code: 'es', flag: '🇪🇸', name: 'Español' },
-  { code: 'pt', flag: '🇧🇷', name: 'Português' },
-  { code: 'de', flag: '🇩🇪', name: 'Deutsch' },
-  { code: 'ar', flag: '🇸🇦', name: 'العربية' },
-  { code: 'hi', flag: '🇮🇳', name: 'हिन्दी' },
-  { code: 'zh', flag: '🇨🇳', name: '中文' },
-  { code: 'ru', flag: '🇷🇺', name: 'Русский' },
+/* country: ISO 3166-1 alpha-2 code for flag images (flag emoji does not
+   render on Windows, so the UI shows small flag images instead) */
+export const LANGS: { code: Lang; flag: string; country: string; name: string }[] = [
+  { code: 'en', flag: '🇺🇸', country: 'us', name: 'English' },
+  { code: 'sw', flag: '🇰🇪', country: 'ke', name: 'Kiswahili' },
+  { code: 'fr', flag: '🇫🇷', country: 'fr', name: 'Français' },
+  { code: 'es', flag: '🇪🇸', country: 'es', name: 'Español' },
+  { code: 'pt', flag: '🇧🇷', country: 'br', name: 'Português' },
+  { code: 'de', flag: '🇩🇪', country: 'de', name: 'Deutsch' },
+  { code: 'ar', flag: '🇸🇦', country: 'sa', name: 'العربية' },
+  { code: 'hi', flag: '🇮🇳', country: 'in', name: 'हिन्दी' },
+  { code: 'zh', flag: '🇨🇳', country: 'cn', name: '中文' },
+  { code: 'ru', flag: '🇷🇺', country: 'ru', name: 'Русский' },
 ];

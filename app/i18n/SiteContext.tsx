@@ -25,6 +25,7 @@ export function SiteProvider({ children }: { children: ReactNode }) {
       if (savedLang && translations[savedLang]) {
         setLangState(savedLang);
         document.documentElement.dir = savedLang === 'ar' ? 'rtl' : 'ltr';
+        document.documentElement.lang = savedLang;
       }
       const savedTheme = localStorage.getItem('waya-theme') as Theme | null;
       if (savedTheme === 'light' || savedTheme === 'dark') {
@@ -37,6 +38,7 @@ export function SiteProvider({ children }: { children: ReactNode }) {
   const setLang = (l: Lang) => {
     setLangState(l);
     document.documentElement.dir = l === 'ar' ? 'rtl' : 'ltr';
+    document.documentElement.lang = l;
     try { localStorage.setItem('waya-lang', l); } catch {}
   };
 
