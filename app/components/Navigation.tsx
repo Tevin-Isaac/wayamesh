@@ -7,9 +7,17 @@ import { LANGS } from '../i18n/translations';
 export default function Navigation() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const logoRef = useRef<HTMLAnchorElement>(null);
   const langRef = useRef<HTMLDivElement>(null);
   const { lang, setLang, theme, setTheme, t } = useSite();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const current = LANGS.find(l => l.code === lang) ?? LANGS[0];
 
@@ -31,7 +39,22 @@ export default function Navigation() {
   }, [langOpen]);
 
   return (
-    <nav style={{ padding: '16px 0', position: 'fixed', top: 0, left: 0, right: 0, background: 'transparent', zIndex: 100, pointerEvents: 'none' }}>
+    <nav
+      style={{
+        padding: scrolled ? '10px 0' : '16px 0',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        background: scrolled ? 'var(--nav-bg)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(16px)' : 'none',
+        WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
+        borderBottom: scrolled ? '1px solid rgba(62,217,184,0.12)' : '1px solid transparent',
+        transition: 'background 0.3s ease, padding 0.3s ease, border-color 0.3s ease',
+        zIndex: 100,
+        pointerEvents: 'none',
+      }}
+    >
       <div className="waya-container nav-inner" style={{ pointerEvents: 'auto' }}>
         {/* Logo — v3: coin traveling the wire through mesh nodes */}
         <a href="#" ref={logoRef} onClick={handleLogoClick} className="nav-logo">

@@ -21,141 +21,168 @@ export default function MobileApp() {
 
         <div className="phone-row" style={{ display: 'flex', justifyContent: 'center', alignItems: 'flex-end', gap: '24px', marginBottom: 'clamp(20px, 3.5vw, 34px)' }}>
 
-          {/* ── LEFT PHONE — Dashboard ── */}
+          {/* ── LEFT PHONE — Wallet (real home screen) ── */}
           <FadeIn delay={0.15} y={50} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
-            <div style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.07em', textTransform: 'uppercase', color: '#A0A0A0' }}>Dashboard</div>
+            <div style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.07em', textTransform: 'uppercase', color: '#A0A0A0' }}>Wallet</div>
             <div style={{
               width: '155px', height: '300px', borderRadius: '28px',
-              border: '2px solid rgba(62,217,184,0.15)', background: '#0D0D1A',
+              border: '2px solid rgba(62,217,184,0.15)', background: '#07070F',
               position: 'relative', overflow: 'hidden',
               opacity: 0.85, transform: 'scale(0.93) translateY(12px)',
               boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
             }}>
-              {/* Notch */}
               <div style={{ width: '50px', height: '10px', background: '#07070F', border: '1.5px solid rgba(255,255,255,0.08)', borderRadius: '0 0 10px 10px', position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', zIndex: 2 }} />
-              {/* Screen content */}
-              <div style={{ position: 'absolute', inset: 0, padding: '22px 14px 14px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                {/* Header */}
+              <div style={{ position: 'absolute', inset: 0, padding: '20px 12px 12px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                {/* Top bar */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ fontSize: '9px', fontWeight: 700, color: '#3ED9B8' }}>wayamesh</span>
-                  <span style={{ fontSize: '7px', color: '#3ED9B8', background: 'rgba(62,217,184,0.15)', padding: '2px 5px', borderRadius: '8px' }}>● Offline</span>
-                </div>
-                {/* Balance */}
-                <div style={{ background: 'rgba(62,217,184,0.08)', border: '1px solid rgba(62,217,184,0.15)', borderRadius: '10px', padding: '10px' }}>
-                  <div style={{ fontSize: '7px', color: '#666', marginBottom: '3px' }}>USDC Balance</div>
-                  <div style={{ fontSize: '18px', fontWeight: 900, color: '#F5F4F2', letterSpacing: '-0.03em' }}>$245.80</div>
-                  <div style={{ fontSize: '7px', color: '#3ED9B8', marginTop: '2px' }}>↑ +$50 pending</div>
-                </div>
-                {/* Transactions */}
-                <div style={{ fontSize: '7px', fontWeight: 700, color: '#555', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Recent</div>
-                {[
-                  { name: 'Amina K.', amt: '-$20', color: '#F5F4F2' },
-                  { name: 'David M.', amt: '+$50', color: '#3ED9B8' },
-                  { name: 'Fatou S.', amt: '-$12', color: '#F5F4F2' },
-                ].map((tx) => (
-                  <div key={tx.name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '5px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                      <div style={{ width: '18px', height: '18px', borderRadius: '50%', background: 'rgba(62,217,184,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '7px', color: '#3ED9B8', fontWeight: 700 }}>{tx.name[0]}</div>
-                      <span style={{ fontSize: '8px', color: '#999' }}>{tx.name}</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
+                    <div style={{ width: '16px', height: '16px', borderRadius: '50%', background: 'rgba(62,217,184,0.2)', border: '1px solid rgba(62,217,184,0.4)' }} />
+                    <div>
+                      <div style={{ fontSize: '5.5px', color: '#8888A0' }}>Welcome back</div>
+                      <div style={{ fontSize: '7px', fontWeight: 700, color: '#F5F4F2' }}>Your wallet</div>
                     </div>
-                    <span style={{ fontSize: '9px', fontWeight: 700, color: tx.color }}>{tx.amt}</span>
+                  </div>
+                  <span style={{ fontSize: '5.5px', color: '#3ED9B8', background: 'rgba(62,217,184,0.1)', padding: '2px 5px', borderRadius: '8px', border: '1px solid rgba(62,217,184,0.2)' }}>● Arc Testnet</span>
+                </div>
+                {/* Balance hero */}
+                <div style={{ textAlign: 'center', padding: '6px 0 2px' }}>
+                  <div style={{ fontSize: '5.5px', fontWeight: 700, letterSpacing: '0.1em', color: '#8888A0', textTransform: 'uppercase', marginBottom: '3px' }}>Total balance</div>
+                  <div style={{ fontSize: '21px', fontWeight: 900, color: '#F5F4F2', letterSpacing: '-0.03em', lineHeight: 1 }}>$245<span style={{ fontSize: '12px', color: '#8888A0' }}>.80</span></div>
+                  <div style={{ display: 'inline-block', fontSize: '5.5px', color: '#8888A0', fontFamily: 'monospace', background: '#0F0F1A', border: '1px solid #1E1E35', borderRadius: '8px', padding: '2px 6px', marginTop: '4px' }}>0x4f3a2b…9c1d ⧉</div>
+                </div>
+                {/* Quick actions */}
+                <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0 4px' }}>
+                  {[
+                    { g: '↑', l: 'Send', primary: true },
+                    { g: '⌘', l: 'Request' },
+                    { g: '↓', l: 'Receive' },
+                    { g: '▣', l: 'Scan' },
+                  ].map((a) => (
+                    <div key={a.l} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '2px' }}>
+                      <div style={{ width: '20px', height: '20px', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '8px', background: a.primary ? '#3ED9B8' : '#0F0F1A', border: a.primary ? 'none' : '1px solid #1E1E35', color: a.primary ? '#07070F' : '#F5F4F2', fontWeight: 700 }}>{a.g}</div>
+                      <span style={{ fontSize: '5px', color: '#8888A0' }}>{a.l}</span>
+                    </div>
+                  ))}
+                </div>
+                {/* Recent activity */}
+                <div style={{ fontSize: '5.5px', fontWeight: 700, color: '#555570', textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: '2px' }}>Recent activity</div>
+                {[
+                  { who: '0x8a2f…9d31', date: 'Jul 8', amt: '+50.00', inc: true },
+                  { who: '0xb3c1…44e7', date: 'Jul 7', amt: '−20.00', inc: false },
+                  { who: '0x77aa…f2c9', date: 'Jul 5', amt: '−12.00', inc: false },
+                ].map((tx) => (
+                  <div key={tx.who} style={{ display: 'flex', alignItems: 'center', gap: '5px', padding: '3px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+                    <div style={{ width: '13px', height: '13px', borderRadius: '50%', background: tx.inc ? 'rgba(62,217,184,0.18)' : '#16162A', border: '1px solid #1E1E35', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '6px', color: tx.inc ? '#3ED9B8' : '#8888A0' }}>{tx.inc ? '↓' : '↑'}</div>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: '6.5px', color: '#F5F4F2', fontFamily: 'monospace' }}>{tx.who}</div>
+                      <div style={{ fontSize: '5.5px', color: '#555570' }}>{tx.date}</div>
+                    </div>
+                    <span style={{ fontSize: '7px', fontWeight: 700, color: tx.inc ? '#3ED9B8' : '#F5F4F2' }}>{tx.amt}</span>
                   </div>
                 ))}
               </div>
             </div>
           </FadeIn>
 
-          {/* ── CENTER PHONE — Send (featured) ── */}
+          {/* ── CENTER PHONE — Send with keypad (featured) ── */}
           <FadeIn delay={0} y={50} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
             <div style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.07em', textTransform: 'uppercase', color: '#3ED9B8' }}>Send</div>
             <Magnet padding={140} strength={7}>
             <div style={{
               width: '175px', height: '340px', borderRadius: '28px',
-              border: '2px solid rgba(62,217,184,0.35)', background: '#0D0D1A',
+              border: '2px solid rgba(62,217,184,0.35)', background: '#07070F',
               position: 'relative', overflow: 'hidden',
               boxShadow: '0 0 0 1px rgba(62,217,184,0.15), 0 20px 80px rgba(62,217,184,0.18), 0 30px 70px rgba(0,0,0,0.6)',
             }}>
               <div style={{ width: '50px', height: '10px', background: '#07070F', border: '1.5px solid rgba(255,255,255,0.08)', borderRadius: '0 0 10px 10px', position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', zIndex: 2 }} />
-              <div style={{ position: 'absolute', inset: 0, padding: '22px 16px 16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <div style={{ position: 'absolute', inset: 0, padding: '20px 14px 14px', display: 'flex', flexDirection: 'column', gap: '7px' }}>
                 {/* Header */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <span style={{ fontSize: '11px', fontWeight: 800, color: '#F5F4F2' }}>Send USDC</span>
-                  <span style={{ fontSize: '7px', color: '#3ED9B8', background: 'rgba(62,217,184,0.12)', padding: '2px 6px', borderRadius: '8px', border: '1px solid rgba(62,217,184,0.2)' }}>BLE</span>
+                  <span style={{ fontSize: '5.5px', color: '#3ED9B8', background: 'rgba(62,217,184,0.1)', padding: '2px 5px', borderRadius: '8px', border: '1px solid rgba(62,217,184,0.2)' }}>Offline OK</span>
                 </div>
                 {/* Recipient */}
-                <div style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '10px', padding: '8px 10px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <div style={{ width: '26px', height: '26px', borderRadius: '50%', background: 'linear-gradient(135deg, #3ED9B8 0%, #2775CA 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '10px', fontWeight: 700, color: '#fff', flexShrink: 0 }}>J</div>
+                <div style={{ background: '#0F0F1A', border: '1px solid #1E1E35', borderRadius: '10px', padding: '6px 8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                  <div style={{ width: '20px', height: '20px', borderRadius: '50%', background: 'linear-gradient(135deg, #3ED9B8 0%, #2775CA 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '8px', fontWeight: 700, color: '#fff', flexShrink: 0 }}>J</div>
                   <div>
-                    <div style={{ fontSize: '9px', fontWeight: 700, color: '#F5F4F2' }}>James W.</div>
-                    <div style={{ fontSize: '7px', color: '#555', fontFamily: 'monospace' }}>0x4f…c3a1</div>
+                    <div style={{ fontSize: '7.5px', fontWeight: 700, color: '#F5F4F2' }}>James W.</div>
+                    <div style={{ fontSize: '5.5px', color: '#555570', fontFamily: 'monospace' }}>0x4f…c3a1</div>
                   </div>
-                  <div style={{ marginLeft: 'auto', width: '8px', height: '8px', borderRadius: '50%', background: '#3ED9B8' }} />
+                  <div style={{ marginLeft: 'auto', width: '6px', height: '6px', borderRadius: '50%', background: '#3ED9B8' }} />
                 </div>
                 {/* Amount */}
-                <div style={{ background: 'rgba(62,217,184,0.06)', border: '1px solid rgba(62,217,184,0.2)', borderRadius: '10px', padding: '12px 10px', textAlign: 'center' }}>
-                  <div style={{ fontSize: '7px', color: '#666', marginBottom: '4px' }}>Amount</div>
-                  <div style={{ fontSize: '26px', fontWeight: 900, color: '#F5F4F2', letterSpacing: '-0.04em' }}>$50<span style={{ fontSize: '14px', color: '#3ED9B8' }}>.00</span></div>
-                  <div style={{ fontSize: '7px', color: '#555', marginTop: '3px' }}>USDC</div>
+                <div style={{ textAlign: 'center', padding: '2px 0' }}>
+                  <div style={{ fontSize: '22px', fontWeight: 900, color: '#F5F4F2', letterSpacing: '-0.04em', lineHeight: 1 }}>$50<span style={{ fontSize: '12px', color: '#3ED9B8' }}>.00</span></div>
+                  <div style={{ fontSize: '5.5px', color: '#8888A0', marginTop: '2px' }}>USDC · Balance $245.80</div>
                 </div>
-                {/* Handoff indicator */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '5px', padding: '5px 8px', background: 'rgba(62,217,184,0.05)', borderRadius: '8px', border: '1px solid rgba(62,217,184,0.1)' }}>
-                  <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#3ED9B8', animation: 'pulse 1.8s ease-in-out infinite' }} />
-                  <span style={{ fontSize: '7px', color: '#3ED9B8', fontWeight: 600 }}>Hand off via QR or Bluetooth</span>
+                {/* Keypad */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '4px' }}>
+                  {['1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '0', '⌫'].map((k) => (
+                    <div key={k} style={{ height: '17px', borderRadius: '6px', background: '#0F0F1A', border: '1px solid #1E1E35', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '8px', fontWeight: 600, color: k === '⌫' ? '#8888A0' : '#F5F4F2' }}>{k}</div>
+                  ))}
                 </div>
-                {/* Signing note */}
-                <div style={{ fontSize: '7px', color: '#555', textAlign: 'center' }}>Signed offline · Gas paid in USDC</div>
                 {/* Send button */}
-                <div style={{ background: '#3ED9B8', borderRadius: '10px', padding: '10px', textAlign: 'center', marginTop: 'auto' }}>
-                  <span style={{ fontSize: '10px', fontWeight: 800, color: '#07070F' }}>Send Payment</span>
+                <div style={{ background: '#3ED9B8', borderRadius: '10px', padding: '8px', textAlign: 'center', marginTop: 'auto' }}>
+                  <span style={{ fontSize: '9px', fontWeight: 800, color: '#07070F' }}>Sign &amp; Send</span>
                 </div>
+                <div style={{ fontSize: '5.5px', color: '#555570', textAlign: 'center' }}>Signs offline · hand off via QR or Bluetooth</div>
               </div>
             </div>
             </Magnet>
           </FadeIn>
 
-          {/* ── RIGHT PHONE — AI Agent ── */}
+          {/* ── RIGHT PHONE — Agent (spending envelope + standing payments) ── */}
           <FadeIn delay={0.25} y={50} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
-            <div style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.07em', textTransform: 'uppercase', color: '#A0A0A0' }}>Agent Wallet</div>
+            <div style={{ fontSize: '11px', fontWeight: 600, letterSpacing: '0.07em', textTransform: 'uppercase', color: '#A0A0A0' }}>Agent</div>
             <div style={{
               width: '155px', height: '300px', borderRadius: '28px',
-              border: '2px solid rgba(62,217,184,0.15)', background: '#0D0D1A',
+              border: '2px solid rgba(62,217,184,0.15)', background: '#07070F',
               position: 'relative', overflow: 'hidden',
               opacity: 0.85, transform: 'scale(0.93) translateY(12px)',
               boxShadow: '0 20px 60px rgba(0,0,0,0.5)',
             }}>
               <div style={{ width: '50px', height: '10px', background: '#07070F', border: '1.5px solid rgba(255,255,255,0.08)', borderRadius: '0 0 10px 10px', position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', zIndex: 2 }} />
-              <div style={{ position: 'absolute', inset: 0, padding: '22px 14px 14px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <div style={{ position: 'absolute', inset: 0, padding: '20px 12px 12px', display: 'flex', flexDirection: 'column', gap: '7px' }}>
                 {/* Header */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                  <span style={{ fontSize: '9px', fontWeight: 700, color: '#F5F4F2' }}>Agent Wallet</span>
-                  <span style={{ fontSize: '7px', color: '#3ED9B8', background: 'rgba(62,217,184,0.15)', padding: '2px 5px', borderRadius: '8px' }}>● Active</span>
+                  <span style={{ fontSize: '9px', fontWeight: 700, color: '#F5F4F2' }}>Agent wallet</span>
+                  <span style={{ fontSize: '5.5px', color: '#3ED9B8', background: 'rgba(62,217,184,0.1)', padding: '2px 5px', borderRadius: '8px', border: '1px solid rgba(62,217,184,0.2)' }}>● Active</span>
                 </div>
-                {/* Mandate info */}
-                <div style={{ background: 'rgba(62,217,184,0.06)', border: '1px solid rgba(62,217,184,0.15)', borderRadius: '8px', padding: '7px 8px' }}>
-                  <div style={{ fontSize: '7px', color: '#555' }}>Spending mandate</div>
-                  <div style={{ fontSize: '9px', fontWeight: 700, color: '#3ED9B8' }}>$50/day cap · On-device</div>
-                </div>
-                {/* Policy checks */}
-                <div style={{ fontSize: '7px', fontWeight: 700, color: '#555', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Policy checks</div>
+                {/* Spending envelope meters */}
+                <div style={{ fontSize: '5.5px', fontWeight: 700, color: '#555570', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Spending envelope</div>
                 {[
-                  { label: 'Per-tx cap enforced', done: true },
-                  { label: 'Daily cap enforced', done: true },
-                  { label: 'Allowlist verified', done: true },
-                  { label: 'Standing payment due', active: true },
-                ].map((task) => (
-                  <div key={task.label} style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-                    <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: task.done ? 'rgba(62,217,184,0.2)' : task.active ? 'rgba(62,217,184,0.1)' : 'rgba(255,255,255,0.04)', border: `1px solid ${task.done || task.active ? 'rgba(62,217,184,0.4)' : 'rgba(255,255,255,0.08)'}`, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      {task.done && <span style={{ fontSize: '6px', color: '#3ED9B8' }}>✓</span>}
-                      {task.active && <div style={{ width: '4px', height: '4px', borderRadius: '50%', background: '#3ED9B8', animation: 'pulse 1.5s ease-in-out infinite' }} />}
+                  { label: 'Daily', left: '17.50', cap: '50.00', pct: 65 },
+                  { label: 'Per transaction', left: '10.00', cap: '10.00', pct: 100 },
+                  { label: 'Total', left: '112.00', cap: '200.00', pct: 56 },
+                ].map((m) => (
+                  <div key={m.label}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '2px' }}>
+                      <span style={{ fontSize: '6.5px', color: '#F5F4F2', fontWeight: 600 }}>{m.label}</span>
+                      <span style={{ fontSize: '6.5px', color: '#3ED9B8', fontWeight: 700 }}>{m.left} <span style={{ color: '#555570', fontWeight: 400 }}>of {m.cap}</span></span>
                     </div>
-                    <span style={{ fontSize: '8px', color: task.done ? '#888' : task.active ? '#3ED9B8' : '#444' }}>{task.label}</span>
+                    <div style={{ height: '4px', borderRadius: '2px', background: '#16162A', overflow: 'hidden' }}>
+                      <div style={{ height: '100%', width: `${m.pct}%`, borderRadius: '2px', background: '#3ED9B8', opacity: 0.8 }} />
+                    </div>
                   </div>
                 ))}
-                {/* Pending count */}
-                <div style={{ marginTop: 'auto', background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.06)', borderRadius: '8px', padding: '7px 8px' }}>
-                  <div style={{ fontSize: '7px', color: '#555' }}>Pending settlement</div>
-                  <div style={{ fontSize: '14px', fontWeight: 800, color: '#F5F4F2' }}>3 <span style={{ fontSize: '7px', color: '#555', fontWeight: 400 }}>transactions</span></div>
-                </div>
+                {/* Standing payments */}
+                <div style={{ fontSize: '5.5px', fontWeight: 700, color: '#555570', textTransform: 'uppercase', letterSpacing: '0.08em', marginTop: '2px' }}>Standing payments</div>
+                {[
+                  { label: 'Rent', who: 'Mama Njeri · monthly', next: 'Next Aug 1 · 2 paid', amt: '25.00' },
+                  { label: 'Data bundle', who: '0x7c…21aa · weekly', next: 'Next Jul 14 · 5 paid', amt: '2.00' },
+                ].map((ins) => (
+                  <div key={ins.label} style={{ display: 'flex', alignItems: 'center', gap: '5px', padding: '3px 0', borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+                    <div style={{ width: '13px', height: '13px', borderRadius: '50%', background: '#16162A', border: '1px solid #1E1E35', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '6px', color: '#8888A0' }}>{ins.label[0]}</div>
+                    <div style={{ flex: 1, minWidth: 0 }}>
+                      <div style={{ fontSize: '6.5px', fontWeight: 700, color: '#F5F4F2' }}>{ins.label}</div>
+                      <div style={{ fontSize: '5.5px', color: '#8888A0' }}>{ins.who}</div>
+                      <div style={{ fontSize: '5.5px', color: '#3ED9B8' }}>{ins.next}</div>
+                    </div>
+                    <span style={{ fontSize: '7px', fontWeight: 700, color: '#F5F4F2' }}>{ins.amt}</span>
+                  </div>
+                ))}
+                {/* Executes offline note */}
+                <div style={{ marginTop: 'auto', fontSize: '5.5px', color: '#555570', textAlign: 'center' }}>Due payments sign locally · settle at reconnect</div>
               </div>
             </div>
           </FadeIn>
