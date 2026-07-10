@@ -30,10 +30,9 @@ export default function Story() {
 
           {/* Right — story + quote */}
           <FadeIn delay={0.2}>
-            <div style={{ fontSize: '16px', color: 'var(--muted)', lineHeight: 1.7 }}>
-              <p style={{ margin: 0 }}>{t.story.p1} {t.story.p2}</p>
-              <p style={{ margin: '0.5rem 0 0' }}>{t.story.p3}</p>
-            </div>
+            <p style={{ fontSize: '16px', color: 'var(--muted)', lineHeight: 1.7, margin: 0 }}>
+              {t.story.p1} {t.story.p2} {t.story.p3}
+            </p>
 
             <div style={{ borderLeft: '3px solid #3ED9B8', paddingLeft: '20px', marginTop: '1.2rem' }}>
               <AnimatedText
