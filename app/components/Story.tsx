@@ -1,29 +1,47 @@
+'use client';
+
+import FadeIn from './fx/FadeIn';
+import AnimatedText from './fx/AnimatedText';
+import { useSite } from '../i18n/SiteContext';
+
 export default function Story() {
+  const { t } = useSite();
+
   return (
     <section id="story" className="waya-section">
       <div className="waya-container">
-        <div style={{ maxWidth: '680px', margin: '0 auto' }}>
+        <div className="story-grid">
 
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(62,217,184,0.08)', border: '1px solid rgba(62,217,184,0.2)', borderRadius: '100px', padding: '5px 14px', marginBottom: '1.8rem', fontSize: '12px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: '#3ED9B8' }}>
-            Why we built this
+          {/* Left — badge + heading */}
+          <div>
+            <FadeIn>
+              <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(62,217,184,0.08)', border: '1px solid rgba(62,217,184,0.2)', borderRadius: '100px', padding: '5px 14px', marginBottom: '1.4rem', fontSize: '12px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: 'var(--accent)' }}>
+                {t.story.badge}
+              </div>
+            </FadeIn>
+
+            <FadeIn delay={0.1} y={40}>
+              <h2 className="grad-heading" style={{ fontSize: 'clamp(1.9rem, 3.4vw, 2.9rem)', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1.08 }}>
+                {t.story.h1}<br />
+                <span className="grad-accent">{t.story.h2}</span>
+              </h2>
+            </FadeIn>
           </div>
 
-          <h2 style={{ fontSize: 'clamp(1.9rem, 4vw, 3rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#F5F4F2', lineHeight: 1.1, marginBottom: '1.6rem' }}>
-            In 2022, governments cut the internet.<br />
-            <span style={{ color: '#3ED9B8' }}>People couldn&apos;t spend a cent.</span>
-          </h2>
+          {/* Right — story + quote */}
+          <FadeIn delay={0.2}>
+            <div style={{ fontSize: '16px', color: 'var(--muted)', lineHeight: 1.7 }}>
+              <p style={{ margin: 0 }}>{t.story.p1} {t.story.p2}</p>
+              <p style={{ margin: '0.5rem 0 0' }}>{t.story.p3}</p>
+            </div>
 
-          <div style={{ fontSize: '17px', color: '#888', lineHeight: 1.9, marginBottom: '1.6rem', display: 'flex', flexDirection: 'column', gap: '0.55rem' }}>
-            <p style={{ margin: 0 }}>Sudan. Myanmar. Iran. People couldn&apos;t buy food, pay rent, or send money home — even with USDC sitting in their wallets. Because every digital payment, crypto included, still needs an internet connection.</p>
-            <p style={{ margin: 0 }}>That single assumption — that the internet is always there — is the vulnerability. Not the money. The pipes.</p>
-            <p style={{ margin: 0 }}>Wayamesh removes that assumption from the payment itself. Send USDC over Bluetooth, phone to phone — no towers, no banks, no internet needed to send or receive. A lightweight AI agent on your device handles validation, signing, and routing entirely offline. Blockchain settlement on Arc is a background process — automatic, silent, handled by the agent whenever any device in the chain finds a connection. The payment is instant. The on-chain record follows.</p>
-          </div>
-
-          <div style={{ borderLeft: '3px solid #3ED9B8', paddingLeft: '20px' }}>
-            <p style={{ fontSize: '19px', fontWeight: 700, color: '#F5F4F2', lineHeight: 1.5, fontStyle: 'italic', margin: 0 }}>
-              &ldquo;Your money works. Even when the internet doesn&apos;t.&rdquo;
-            </p>
-          </div>
+            <div style={{ borderLeft: '3px solid #3ED9B8', paddingLeft: '20px', marginTop: '1.2rem' }}>
+              <AnimatedText
+                text={t.story.quote}
+                style={{ fontSize: 'clamp(1.15rem, 2vw, 1.45rem)', fontWeight: 700, color: 'var(--text)', lineHeight: 1.45, fontStyle: 'italic', margin: 0 }}
+              />
+            </div>
+          </FadeIn>
 
         </div>
       </div>

@@ -1,14 +1,21 @@
-# Wayamesh — Offline-first USDC payments
+# Wayamesh — Offline-first USDC payments on Arc
 
-Send USDC with no internet. Phone to phone over Bluetooth mesh. AI agents handle everything offline.
+Sign a USDC payment with no internet, hand it to the receiver by **QR code or Bluetooth**, and it settles on [Arc](https://arc.network) in under a second — from whichever phone finds a connection first. Money that moves like cash, settles like a blockchain.
 
-**Live site:** coming soon
+**Live site:** [wayamesh.xyz](https://wayamesh.xyz)
+**Mobile app:** [wayamesh-mobile](https://github.com/Tevin-Isaac/wayamesh-mobile) · [Download the Android beta APK](https://github.com/Tevin-Isaac/wayamesh-mobile/releases/latest/download/wayamesh-beta.apk)
 
 ---
 
 ## What is Wayamesh
 
-Wayamesh is a mobile app that lets you send USDC peer-to-peer via Bluetooth mesh — no internet connection required. A lightweight 4MB AI agent runs entirely on your device, validating transactions, estimating Arc fees, and routing payments through the mesh. Settlement on Arc happens automatically in the background whenever any device in the network finds a connection.
+Wayamesh is a self-custodial mobile wallet for offline-first P2P USDC payments:
+
+- **Offline send + handoff** — the phone signs a USDC transfer with a hardware-bound key (Android Keystore / iOS Secure Enclave), no connection needed. The payment reaches the receiver as a QR code or over Bluetooth; whichever phone touches the internet first settles it on Arc (finality ≈480ms).
+- **Self-custody, no backend** — keys never leave the device; the phone talks directly to Arc. No servers between users and their money.
+- **Agent wallet** — a spending envelope automation can never exceed (per-tx / daily / total caps, allowlists, expiry), enforced on-device by a deterministic policy engine. Standing payments execute fully offline.
+- **Gasless smart account** — Circle Smart Account + Circle Paymaster: gas is paid in USDC itself.
+- **Chat + pay** — message contacts and send USDC inside the thread.
 
 No towers. No banks. No permission.
 
@@ -35,10 +42,10 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ## Blockchain
 
-USDC settles on **Arc** (Chain ID: 5042002) via Circle Wallets SDK.
+USDC settles on **Arc Testnet** (Chain ID: `5042002`) — USDC is the native gas token. Free test USDC at [faucet.circle.com](https://faucet.circle.com).
 
 ---
 
 ## Status
 
-Pre-launch. App development in progress — Phase 1 MVP underway.
+Android beta available (**v1.0.0-beta.2 — Offline Handoff**), running on Arc Testnet. iOS TestFlight coming soon.

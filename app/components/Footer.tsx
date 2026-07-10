@@ -91,7 +91,7 @@ export default function Footer() {
   }, []);
 
   return (
-    <footer style={{ position: 'relative', overflow: 'hidden', background: '#07070F', borderTop: '1px solid rgba(62,217,184,0.1)', padding: '60px 0 40px' }}>
+    <footer style={{ position: 'relative', overflow: 'hidden', background: 'var(--bg)', borderTop: '1px solid rgba(62,217,184,0.1)', padding: '36px 0 28px' }}>
       {/* Live mesh canvas background */}
       <canvas
         ref={canvasRef}
@@ -99,12 +99,12 @@ export default function Footer() {
       />
 
       {/* Soft vignette so content stays readable */}
-      <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 80% 60% at 50% 100%, transparent 30%, #07070F 80%)', pointerEvents: 'none' }} />
+      <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 80% 60% at 50% 100%, transparent 30%, var(--bg) 80%)', pointerEvents: 'none' }} />
 
       <div className="waya-container" style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
 
         {/* Divider */}
-        <div style={{ width: '100%', height: '1px', background: 'rgba(62,217,184,0.08)', marginBottom: '32px', marginTop: '16px' }} />
+        <div style={{ width: '100%', height: '1px', background: 'rgba(62,217,184,0.08)', marginBottom: '20px' }} />
 
         {/* Bottom row */}
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', width: '100%' }}>
@@ -112,12 +112,12 @@ export default function Footer() {
             href="https://x.com/wayamesh"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: '#555', transition: 'color 0.2s', display: 'flex' }}
+            style={{ color: 'var(--dim)', transition: 'color 0.2s', display: 'flex' }}
             className="footer-x"
           >
             <i className="ti ti-brand-x" style={{ fontSize: '22px' }} />
           </a>
-          <span style={{ fontSize: '12px', color: '#333' }}>© 2026 Wayamesh</span>
+          <span style={{ fontSize: '12px', color: 'var(--dim)' }}>© 2026 Wayamesh</span>
         </div>
 
       </div>

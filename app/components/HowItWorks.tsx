@@ -1,49 +1,34 @@
+'use client';
+
+import FadeIn from './fx/FadeIn';
+import { useSite } from '../i18n/SiteContext';
+
 export default function HowItWorks() {
-  const steps = [
-    {
-      icon: 'ti-cpu',
-      num: '01',
-      title: 'Agent validates offline',
-      desc: 'You create a payment. Your on-device AI agent checks the amount, recipient, and balance — all locally. It signs the transaction with your private key and stores it in SQLite. No internet at any point.',
-    },
-    {
-      icon: 'ti-bluetooth',
-      num: '02',
-      title: 'Mesh relay',
-      desc: 'The signed transaction propagates peer-to-peer over Bluetooth. Every nearby Wayamesh device is a relay node. The payment hops through the mesh until it reaches its destination — or a device with connectivity.',
-    },
-    {
-      icon: 'ti-circle-check',
-      num: '03',
-      title: 'Automatic Arc settlement',
-      desc: 'The payment already transferred the moment it was signed and relayed. Settlement on Arc is just the on-chain record — your agent handles it silently in the background whenever any device in the chain finds a connection. No action needed from you.',
-    },
-  ];
+  const { t } = useSite();
 
   return (
     <section id="how" className="waya-section">
       <div className="waya-container">
-        <div style={{ textAlign: 'center', marginBottom: 'clamp(32px, 5vw, 56px)' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(62,217,184,0.08)', border: '1px solid rgba(62,217,184,0.2)', borderRadius: '100px', padding: '5px 14px', marginBottom: '1.2rem', fontSize: '12px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: '#3ED9B8' }}>
-            The flow
-          </div>
-          <h2 style={{ fontSize: 'clamp(1.9rem, 4vw, 3rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#F5F4F2', lineHeight: 1.1 }}>
-            How it works
-          </h2>
-        </div>
-
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '40px', position: 'relative' }}>
-{steps.map((step, i) => (
-            <div key={i} className="step-card" style={{ textAlign: 'left' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
-                <div style={{ width: '56px', height: '56px', background: 'rgba(62,217,184,0.08)', border: '1px solid rgba(62,217,184,0.2)', borderRadius: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                  <i className={`ti ${step.icon}`} style={{ fontSize: '28px', color: '#3ED9B8' }} />
-                </div>
-                <span style={{ fontSize: '13px', fontWeight: 800, color: 'rgba(62,217,184,0.4)', letterSpacing: '0.06em' }}>{step.num}</span>
-              </div>
-              <h3 style={{ fontSize: '17px', fontWeight: 700, color: '#F5F4F2', marginBottom: '12px' }}>{step.title}</h3>
-              <p style={{ fontSize: '14px', color: '#666', lineHeight: 1.75 }}>{step.desc}</p>
+        <FadeIn y={40}>
+          <div style={{ textAlign: 'center', marginBottom: 'clamp(22px, 3.5vw, 36px)' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: 'rgba(62,217,184,0.08)', border: '1px solid rgba(62,217,184,0.2)', borderRadius: '100px', padding: '5px 14px', marginBottom: '1.2rem', fontSize: '12px', fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase' as const, color: 'var(--accent)' }}>
+              {t.how.badge}
             </div>
+            <h2 className="grad-heading" style={{ fontSize: 'clamp(2.2rem, 5.5vw, 4rem)', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1.05 }}>
+              {t.how.heading}
+            </h2>
+          </div>
+        </FadeIn>
+
+        <div className="how-list">
+          {t.how.steps.map((step, i) => (
+            <FadeIn key={i} delay={i * 0.1} className="how-item">
+              <span className="how-num">{`0${i + 1}`}</span>
+              <div className="how-body">
+                <h3>{step.title}</h3>
+                <p>{step.desc}</p>
+              </div>
+            </FadeIn>
           ))}
         </div>
       </div>

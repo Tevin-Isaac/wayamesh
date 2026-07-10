@@ -1,5 +1,6 @@
 import Navigation from "./components/Navigation";
 import Hero from "./components/Hero";
+import Marquee from "./components/Marquee";
 import Story from "./components/Story";
 import Capabilities from "./components/Capabilities";
 import HowItWorks from "./components/HowItWorks";
@@ -12,6 +13,7 @@ export default function Home() {
     <>
       <Navigation />
       <Hero />
+      <Marquee />
       <Story />
       <Capabilities />
       <HowItWorks />

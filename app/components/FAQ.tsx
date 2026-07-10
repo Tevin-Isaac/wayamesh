@@ -1,51 +1,37 @@
 'use client';
 
 import { useState } from 'react';
-
-const FAQS = [
-  {
-    q: 'Is my money safe?',
-    a: 'Your private keys never leave your device. Every transaction is signed locally before entering the mesh. AES-256 encrypted at rest, unlocked with biometrics. Even if a packet is intercepted mid-relay, nobody can access your funds without your key.',
-  },
-  {
-    q: 'Do you hold my funds?',
-    a: 'No. Wayamesh is fully self-custodial — we have zero access to your funds. Only your device holds your private key. No custody, no servers, no middlemen.',
-  },
-  {
-    q: 'How do agents work offline?',
-    a: 'A 4–8MB quantized AI model runs directly on your phone — no servers, no cloud. No internet is needed to send, receive, or route a payment. The agent validates, signs, and relays everything offline. Arc settlement is a separate background process — the agent handles it automatically when any device in the chain finds a connection. You never need to think about it.',
-  },
-  {
-    q: 'Can it be blocked?',
-    a: 'The protocol is open-source and peer-to-peer. Funds settle on Arc — censorship-resistant by design. The mesh runs over Bluetooth, a standard hardware protocol that no government can selectively ban.',
-  },
-];
+import FadeIn from './fx/FadeIn';
+import { useSite } from '../i18n/SiteContext';
 
 export default function FAQ() {
   const [active, setActive] = useState(0);
+  const { t } = useSite();
 
   return (
     <section id="faq" className="faq-sec">
       <div className="waya-container">
 
-        <div style={{ textAlign: 'center', marginBottom: '40px' }}>
-          <h2 style={{ fontSize: 'clamp(1.6rem, 3vw, 2.2rem)', fontWeight: 900, letterSpacing: '-0.04em', color: '#F5F4F2', lineHeight: 1 }}>
-            Frequently asked questions
-          </h2>
-        </div>
+        <FadeIn y={40}>
+          <div style={{ textAlign: 'center', marginBottom: '28px' }}>
+            <h2 className="grad-heading" style={{ fontSize: 'clamp(1.9rem, 4vw, 2.8rem)', fontWeight: 900, letterSpacing: '-0.04em', lineHeight: 1.05 }}>
+              {t.faq.heading}
+            </h2>
+          </div>
+        </FadeIn>
 
         {/* Tab row */}
         <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '24px' }}>
-          {FAQS.map((faq, i) => (
+          {t.faq.items.map((faq, i) => (
             <button
               key={i}
               onClick={() => setActive(i)}
               style={{
                 padding: '10px 18px',
                 borderRadius: '100px',
-                border: `1px solid ${active === i ? 'rgba(62,217,184,0.5)' : 'rgba(255,255,255,0.07)'}`,
+                border: `1px solid ${active === i ? 'rgba(62,217,184,0.5)' : 'var(--chip-border)'}`,
                 background: active === i ? 'rgba(62,217,184,0.1)' : 'transparent',
-                color: active === i ? '#3ED9B8' : '#666',
+                color: active === i ? 'var(--accent)' : 'var(--muted-2)',
                 fontSize: '13px',
                 fontWeight: active === i ? 700 : 400,
                 cursor: 'pointer',
@@ -60,14 +46,13 @@ export default function FAQ() {
         </div>
 
         {/* Answer panel */}
-        <div className="faq-answer-panel" style={{
+        <div className="faq-answer-panel liquid-glass" style={{
           background: 'rgba(62,217,184,0.04)',
-          border: '1px solid rgba(62,217,184,0.15)',
           borderRadius: '16px',
           padding: '28px 32px',
         }}>
-          <p style={{ fontSize: '16px', color: '#999', lineHeight: 1.75, maxWidth: '680px' }}>
-            {FAQS[active].a}
+          <p style={{ fontSize: '16px', color: 'var(--muted)', lineHeight: 1.75, maxWidth: '680px' }}>
+            {t.faq.items[active].a}
           </p>
         </div>
 
