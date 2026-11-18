@@ -88,6 +88,7 @@ export default function Navigation() {
           <a href="#story"      className="nav-link">{t.nav.story}</a>
           <a href="#how"        className="nav-link">{t.nav.how}</a>
           <a href="#mobile-app" className="nav-link">{t.nav.tryIt}</a>
+          <a href="/app"        className="nav-link">Web wallet</a>
         </div>
 
         {/* Controls: language + theme + burger */}
@@ -157,6 +158,7 @@ export default function Navigation() {
           <a href="#story"      className="nav-mobile-link" onClick={() => setMenuOpen(false)}>{t.nav.story}</a>
           <a href="#how"        className="nav-mobile-link" onClick={() => setMenuOpen(false)}>{t.nav.how}</a>
           <a href="#mobile-app" className="nav-mobile-link" onClick={() => setMenuOpen(false)}>{t.nav.tryIt}</a>
+          <a href="/app"        className="nav-mobile-link" onClick={() => setMenuOpen(false)}>Web wallet</a>
         </div>
       )}
     </nav>

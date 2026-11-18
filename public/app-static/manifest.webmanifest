@@ -1,0 +1,16 @@
+{
+  "name": "Wayamesh",
+  "short_name": "Wayamesh",
+  "description": "Send USDC with no internet. Offline-first USDC payments on Arc Testnet.",
+  "start_url": "/app",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#07070F",
+  "theme_color": "#07070F",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}
