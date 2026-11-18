@@ -22,12 +22,12 @@ const STEPS = [
   {
     icon: 'ti-qrcode',
     title: 'Pay face to face',
-    body: 'No signal, no problem. Enter an amount, your phone signs it, and the other person scans it. They hold a real, guaranteed payment.',
+    body: 'No signal, no problem. Enter an amount, your phone signs it, and the other person scans it. They can check that it is backed by your on-chain reserve before they accept.',
   },
   {
     icon: 'ti-circle-check',
     title: 'It settles by itself',
-    body: 'The moment either phone is back online, the payment clears on the Arc network. Final, in under a second, with nothing to chase.',
+    body: 'Whoever is online first settles it on the Arc network, usually in about a second. Until it settles, treat it like a promise backed by the sender’s reserve.',
   },
 ];
 
@@ -48,7 +48,7 @@ const AUDIENCES = [
     icon: 'ti-heart-handshake',
     tag: 'Aid & NGOs',
     title: 'Cash assistance that reaches the last mile',
-    body: 'Distribute funds that stay spendable in camps, rural areas and crisis zones, with every payment traceable on-chain.',
+    body: 'Distribute funds that stay spendable in camps, rural areas and crisis zones, with every settled payment visible on-chain.',
   },
   {
     icon: 'ti-wifi-off',
@@ -62,8 +62,8 @@ const ROADMAP = [
   {
     phase: 'Today',
     state: 'live',
-    title: 'Public beta',
-    items: ['Android app and web wallet', 'Offline payments by QR and Bluetooth', 'Agent spending limits', 'M-Pesa top-up and cash-out (pilot)'],
+    title: 'Testnet beta',
+    items: ['Android app and web wallet', 'Offline payments by QR; Bluetooth on Android (experimental)', 'Agent spending limits', 'M-Pesa top-up and cash-out (testnet demo)'],
   },
   {
     phase: 'Next',
@@ -82,7 +82,7 @@ const ROADMAP = [
 const FAQ = [
   {
     q: 'Is Wayamesh live with real money?',
-    a: 'Not yet. Wayamesh is in public beta on the Arc test network using test USDC, so nothing you do moves real money. Mainnet launch follows an independent security audit.',
+    a: 'Not yet. Wayamesh is a testnet beta on the Arc test network using test USDC, so nothing you do moves real money. Mainnet launch follows an independent security audit.',
   },
   {
     q: 'How can a payment work with no internet?',
@@ -128,7 +128,7 @@ export default function Home() {
             <div className="hero-copy">
               <a href="#roadmap" className="pill" data-reveal>
                 <span className="pill-dot" />
-                Public beta now open
+                Testnet beta · test USDC
                 <i className="ti ti-arrow-right" aria-hidden="true" />
               </a>
               <h1 data-reveal>
@@ -147,7 +147,7 @@ export default function Home() {
               <ul className="hero-proof" data-reveal>
                 <li><i className="ti ti-shield-lock" aria-hidden="true" />You hold your keys</li>
                 <li><i className="ti ti-wifi-off" aria-hidden="true" />Works with no signal</li>
-                <li><i className="ti ti-currency-dollar" aria-hidden="true" />Stable, dollar-backed</li>
+                <li><i className="ti ti-currency-dollar" aria-hidden="true" />Dollar-denominated (USDC)</li>
               </ul>
             </div>
 
@@ -171,14 +171,14 @@ export default function Home() {
                   <span className="chip chip-ok">Backed</span>
                 </div>
                 <div className="float-amount">+25.00 <small>USDC</small></div>
-                <div className="float-meta">From Amina · Gikomba Market</div>
+                <div className="float-meta">Example payment · test USDC</div>
               </div>
 
               <div className="float float-settle">
                 <span className="float-icon"><i className="ti ti-check" aria-hidden="true" /></span>
                 <div>
                   <b>Settled on Arc</b>
-                  <span>Back online · 0.5s</span>
+                  <span>Back online</span>
                 </div>
               </div>
             </div>
@@ -233,8 +233,8 @@ export default function Home() {
                   <p>Send money in a basement, a bus or a blackout. Your phone signs the payment and the other person scans it. Done.</p>
                   <ul className="ticks">
                     <li>Backed by an on-chain reserve</li>
-                    <li>Can’t be edited or double-spent</li>
-                    <li>Clears automatically later</li>
+                    <li>Signed: amount and recipient can’t be changed</li>
+                    <li>Settles once anyone is online</li>
                   </ul>
                 </div>
                 <div className="tile-phones">
@@ -245,7 +245,7 @@ export default function Home() {
               <article className="tile" data-reveal>
                 <span className="tile-icon"><i className="ti ti-qrcode" aria-hidden="true" /></span>
                 <h3>Scan to pay</h3>
-                <p>Works between any two devices, phone or browser. On Android, tap to send over Bluetooth.</p>
+                <p>Works between any two devices, phone or browser. On Android, Bluetooth hand-off is in beta.</p>
                 <div className="tile-art art-qr" aria-hidden="true">
                   <img src="/screens/m-receive.webp" alt="" loading="lazy" />
                 </div>
@@ -253,8 +253,8 @@ export default function Home() {
 
               <article className="tile" data-reveal>
                 <span className="tile-icon"><i className="ti ti-arrows-exchange" aria-hidden="true" /></span>
-                <h3>M-Pesa in and out</h3>
-                <p>Top up from M-Pesa and cash out to it. No exchange account, no bank.</p>
+                <h3>M-Pesa top-up and cash-out</h3>
+                <p>Add money from M-Pesa and cash out to it, with no exchange account or bank. Running as a demo on test USDC for now.</p>
                 <div className="tile-art art-rail" aria-hidden="true">
                   <div className="rail-row"><span>M-Pesa</span><b>KES 3,250</b></div>
                   <i className="ti ti-arrow-down" />
@@ -359,9 +359,9 @@ export default function Home() {
             </div>
             <div className="sec-grid">
               {[
-                { i: 'ti-building-bank', t: 'Reserve-backed', b: 'Offline payments draw on funds already locked on-chain, so the receiver knows the money is there.' },
+                { i: 'ti-building-bank', t: 'Reserve-backed', b: 'Offline payments draw on funds already locked on-chain, so the receiver can check the money is there. Until a payment settles it is still a promise, so receivers cap what they hold from any one payer.' },
                 { i: 'ti-signature', t: 'Tamper-proof', b: 'Every payment is cryptographically signed. Change one digit and it’s rejected.' },
-                { i: 'ti-key', t: 'Self-custody', b: 'Your keys never leave your device. Wayamesh can’t freeze, move or lose your money.' },
+                { i: 'ti-key', t: 'Self-custody', b: 'Your keys never leave your device. Wayamesh can’t freeze or move your money. Keep your seed phrase safe: it is the only recovery.' },
                 { i: 'ti-code', t: 'Open source', b: 'The app is public on GitHub for anyone to inspect. A full independent audit comes before mainnet.' },
               ].map((s, i) => (
                 <div className="sec-card" key={s.t} data-reveal style={{ transitionDelay: `${i * 70}ms` }}>
@@ -380,7 +380,7 @@ export default function Home() {
             <div className="sec-head" data-reveal>
               <span className="eyebrow">Roadmap</span>
               <h2>Working today. <em>Built to scale.</em></h2>
-              <p>The core is live in public beta. Here’s the path from testnet to real money in millions of pockets.</p>
+              <p>The core is live as a testnet beta. Here’s the path from testnet to real money in millions of pockets.</p>
             </div>
             <div className="road">
               {ROADMAP.map((r, i) => (
@@ -504,7 +504,7 @@ export default function Home() {
         </div>
         <div className="wrap foot-base">
           <span>© 2026 Wayamesh</span>
-          <span>Public beta on Arc Testnet. Test USDC only, no real funds.</span>
+          <span>Testnet beta on Arc. Test USDC only, no real funds.</span>
         </div>
       </footer>
     </>
