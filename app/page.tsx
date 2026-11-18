@@ -5,7 +5,7 @@ import Reveal from './components/Reveal';
 
 const APK = 'https://github.com/Tevin-Isaac/wayamesh-mobile/releases/latest/download/wayamesh-beta.apk';
 const REPO = 'https://github.com/Tevin-Isaac/wayamesh-mobile';
-const CONTACT = 'mailto:hello@wayamesh.xyz';
+const CONTACT = 'mailto:isaactevin67@gmail.com';
 
 const STATS = [
   { n: '1.4B', l: 'adults worldwide have no bank account', src: 'World Bank Global Findex, 2021' },
