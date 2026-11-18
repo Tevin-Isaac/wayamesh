@@ -4,6 +4,7 @@ import Marquee from "./components/Marquee";
 import Story from "./components/Story";
 import Capabilities from "./components/Capabilities";
 import HowItWorks from "./components/HowItWorks";
+import WebWallet from "./components/WebWallet";
 import FAQ from "./components/FAQ";
 import MobileApp from "./components/MobileApp";
 import Footer from "./components/Footer";
@@ -14,9 +15,10 @@ export default function Home() {
       <Navigation />
       <Hero />
       <Marquee />
-      <Story />
-      <Capabilities />
       <HowItWorks />
+      <WebWallet />
+      <Capabilities />
+      <Story />
       <MobileApp />
       <FAQ />
       <Footer />

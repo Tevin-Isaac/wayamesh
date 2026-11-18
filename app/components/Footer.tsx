@@ -1,10 +1,12 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { useSite } from '../i18n/SiteContext';
 
 type Node = { x: number; y: number; vx: number; vy: number; r: number };
 
 export default function Footer() {
+  const { t } = useSite();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const nodesRef  = useRef<Node[]>([]);
 
@@ -101,25 +103,23 @@ export default function Footer() {
       {/* Soft vignette so content stays readable */}
       <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse 80% 60% at 50% 100%, transparent 30%, var(--bg) 80%)', pointerEvents: 'none' }} />
 
-      <div className="waya-container" style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+      <div className="waya-container" style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: '14px' }}>
 
-        {/* Divider */}
-        <div style={{ width: '100%', height: '1px', background: 'rgba(62,217,184,0.08)', marginBottom: '20px' }} />
-
-        {/* Bottom row */}
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', width: '100%' }}>
-          <a
-            href="https://x.com/wayamesh"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ color: 'var(--dim)', transition: 'color 0.2s', display: 'flex' }}
-            className="footer-x"
-          >
-            <i className="ti ti-brand-x" style={{ fontSize: '22px' }} />
-          </a>
-          <span style={{ fontSize: '12px', color: 'var(--dim)' }}>© 2026 Wayamesh</span>
+        <div className="foot-grid">
+          <div className="foot-col">
+            <strong>{t.footer.product}</strong>
+            <a href="/app">{t.footer.webApp}</a>
+            <a href="https://github.com/Tevin-Isaac/wayamesh-mobile/releases/latest/download/wayamesh-beta.apk">{t.footer.apk}</a>
+            <a href="https://faucet.circle.com" target="_blank" rel="noopener noreferrer">faucet.circle.com</a>
+          </div>
+          <div className="foot-col">
+            <strong>{t.footer.code}</strong>
+            <a href="https://github.com/Tevin-Isaac/wayamesh-mobile" target="_blank" rel="noopener noreferrer">{t.footer.appRepo}</a>
+            <a href="https://x.com/wayamesh" target="_blank" rel="noopener noreferrer">X / Twitter</a>
+          </div>
         </div>
-
+        <p className="foot-note">{t.footer.testnet}</p>
+        <span style={{ fontSize: '12px', color: 'var(--dim)' }}>© 2026 Wayamesh</span>
       </div>
     </footer>
   );

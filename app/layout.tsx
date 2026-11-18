@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Wayamesh — Send USDC with no internet",
-  description: "Offline-first peer-to-peer USDC payments on Arc. Sign with no internet, hand off by QR code or Bluetooth, and it settles in under a second — money that moves like cash, settles like a blockchain.",
+  title: "Wayamesh — Pay in USDC, even offline",
+  description: "A self-custody USDC wallet on Arc Testnet. Sign payments with no connection, hand them over by QR, and whoever is online first settles them. Android beta and web wallet.",
 };
 
 export default function RootLayout({
