@@ -1,51 +1,69 @@
-# Wayamesh — Offline-first USDC payments on Arc
+# Wayamesh website
 
-Sign a USDC payment with no internet, hand it to the receiver by **QR code or Bluetooth**, and it settles on [Arc](https://arc.network) in under a second — from whichever phone finds a connection first. Money that moves like cash, settles like a blockchain.
+The site behind **[wayamesh.xyz](https://wayamesh.xyz)**: a marketing site plus the **Wayamesh web wallet** at **[wayamesh.xyz/app](https://wayamesh.xyz/app)**.
 
-**Live site:** [wayamesh.xyz](https://wayamesh.xyz)
-**Mobile app:** [wayamesh-mobile](https://github.com/Tevin-Isaac/wayamesh-mobile) · [Download the Android beta APK](https://github.com/Tevin-Isaac/wayamesh-mobile/releases/latest/download/wayamesh-beta.apk)
+Wayamesh is a self-custody wallet that signs USDC payments with no internet, hands them over by QR (or Bluetooth on Android), and settles them on [Arc](https://arc.network) when any phone gets a connection. It runs on **Arc Testnet** with test USDC; Arc mainnet is not live.
 
----
+| | |
+|---|---|
+| Web wallet (no install) | [wayamesh.xyz/app](https://wayamesh.xyz/app) |
+| Android beta (APK) | [latest release](https://github.com/Tevin-Isaac/wayamesh-mobile/releases/latest/download/wayamesh-beta.apk) |
+| App + wallet source, full docs | [Tevin-Isaac/wayamesh-mobile](https://github.com/Tevin-Isaac/wayamesh-mobile) |
 
-## What is Wayamesh
+> For exactly how the product works (reserve, vouchers, settlement, chat, Bluetooth, M-Pesa, what is and isn't verified), read the **[main README](https://github.com/Tevin-Isaac/wayamesh-mobile#readme)**. This repo only builds and serves the site.
 
-Wayamesh is a self-custodial mobile wallet for offline-first P2P USDC payments:
+## What's in this repo
 
-- **Offline send + handoff** — the phone signs a USDC transfer with a hardware-bound key (Android Keystore / iOS Secure Enclave), no connection needed. The payment reaches the receiver as a QR code or over Bluetooth; whichever phone touches the internet first settles it on Arc (finality ≈480ms).
-- **Self-custody, no backend** — keys never leave the device; the phone talks directly to Arc. No servers between users and their money.
-- **Agent wallet** — a spending envelope automation can never exceed (per-tx / daily / total caps, allowlists, expiry), enforced on-device by a deterministic policy engine. Standing payments execute fully offline.
-- **Gasless smart account** — Circle Smart Account + Circle Paymaster: gas is paid in USDC itself.
-- **Chat + pay** — message contacts and send USDC inside the thread.
+```
+app/                   Next.js (App Router) landing page: page.tsx, layout.tsx, globals.css, components/
+public/                videos + posters, logos, screenshots (screens/)
+public/app-static/     the BUILT web wallet (a Vite single-page app) — generated, do not edit by hand
+public/sw.js           the wallet's offline service worker (scope /app)
+next.config.ts         rewrites /app and /app/* to the wallet; no-cache header for sw.js
+```
 
-No towers. No banks. No permission.
+### How the wallet is served at `/app`
 
----
+The web wallet is not part of the Next.js build. Its source lives in the main repo (`wayamesh-mobile/web`, Vite + React). A script builds it with its assets under `/app-static/` and copies the output here:
 
-## This repository
+```bash
+# from a checkout of wayamesh-mobile
+web/scripts/sync-to-website.sh "/path/to/this/repo"
+```
 
-Marketing website for Wayamesh, built with Next.js 15, TypeScript, and Tailwind CSS v4.
+Then `next.config.ts` rewrites every `/app` and `/app/*` URL to `/app-static/index.html`, and the wallet's own router takes over in the browser. The service worker is placed at the site root (`/sw.js`) but only controls `/app`. Any deep link such as `/app/send` works on reload.
 
-**Stack:** Next.js 15 (App Router, Turbopack) · TypeScript · Tailwind CSS v4 · Canvas API · Tabler Icons
+**To update the wallet:** change code in `wayamesh-mobile/web`, run the sync script, commit the new `public/app-static` and `public/sw.js`, push.
 
----
-
-## Getting started
+## Develop
 
 ```bash
 npm install
-npm run dev
+npm run dev        # http://localhost:3000
+npm run build      # production build
+npm run start      # serve the build (also serves the wallet at /app)
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+Requires Node 20+. No environment variables are needed for the site. The wallet's M-Pesa add-money / cash-out needs a public ramp server and a build-time `VITE_RAMP_API_URL` (set when building the wallet in the main repo; see its README).
 
----
+## Deploy
 
-## Blockchain
+The site is a Vercel project (`wayamesh-website`) connected to this repo's `master` branch: **pushing to `master` deploys wayamesh.xyz**. Pushing any other branch creates a Vercel preview URL, which is the safe way to check a change before it goes live.
 
-USDC settles on **Arc Testnet** (Chain ID: `5042002`) — USDC is the native gas token. Free test USDC at [faucet.circle.com](https://faucet.circle.com).
+Before pushing, check:
+- `npm run build` passes.
+- `/app`, `/app/onboarding` and `/sw.js` return 200 from `npm run start`.
+- The hero videos (`public/africa.mp4`, `public/usdc.mp4`) still play.
 
----
+## Keeping the site honest
 
-## Status
+The site should say only what the product does today:
+- It runs on **Arc Testnet with test USDC**; nothing holds real money.
+- An offline payment is a **promise backed by the payer's on-chain reserve** until it settles; receivers cap their exposure per payer. It is not final money before settlement.
+- Bluetooth hand-off is **Android-only, single-hop and not yet tested on real devices**; browsers can't do Bluetooth. QR hand-off works on any two devices.
+- M-Pesa add money / cash out is a **testnet demo**.
+- Chat is end-to-end encrypted through public relays, messages disappear after 24 hours, and Bluetooth chat is experimental.
 
-Android beta available (**v1.0.0-beta.2 — Offline Handoff**), running on Arc Testnet. iOS TestFlight coming soon.
+## License
+
+MIT, as in the main repository.
