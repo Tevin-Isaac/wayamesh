@@ -24,16 +24,19 @@ next.config.ts         rewrites /app and /app/* to the wallet; no-cache header f
 
 ### How the wallet is served at `/app`
 
-The web wallet is not part of the Next.js build. Its source lives in the main repo (`wayamesh-mobile/web`, Vite + React). A script builds it with its assets under `/app-static/` and copies the output here:
+The web wallet is not part of the Next.js build. Its source lives in [Tevin-Isaac/meshpay-arc](https://github.com/Tevin-Isaac/meshpay-arc) (the Arc Studio web wallet: Vite + React, the `MeshPayV2` contract and the protocol reference for the phone app). A script there builds it with its assets under `/app-static/` and copies the output here:
 
 ```bash
-# from a checkout of wayamesh-mobile
-web/scripts/sync-to-website.sh "/path/to/this/repo"
+# from a checkout of meshpay-arc
+scripts/sync-to-website.sh "/path/to/this/repo"
+# optional: VITE_RAMP_API_URL=https://<public ramp server> to enable M-Pesa in the wallet
 ```
 
 Then `next.config.ts` rewrites every `/app` and `/app/*` URL to `/app-static/index.html`, and the wallet's own router takes over in the browser. The service worker is placed at the site root (`/sw.js`) but only controls `/app`. Any deep link such as `/app/send` works on reload.
 
-**To update the wallet:** change code in `wayamesh-mobile/web`, run the sync script, commit the new `public/app-static` and `public/sw.js`, push.
+**To update the wallet:** change code in `meshpay-arc`, run the sync script, commit the new `public/app-static` and `public/sw.js`, push.
+
+The wallet's strict security headers (CSP, frame and referrer policy) are applied in `next.config.ts`. If the wallet starts talking to a new host (for example a public ramp server), add it to `connect-src` there.
 
 ## Develop
 
