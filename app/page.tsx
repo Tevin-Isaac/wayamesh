@@ -87,28 +87,24 @@ const ROADMAP = [
 
 const FAQ = [
   {
-    q: 'Is Wayamesh live with real money?',
-    a: 'Not yet. Wayamesh is a testnet beta on the Arc test network using test USDC, so nothing you do moves real money. Mainnet launch follows an independent security audit.',
+    q: 'How can I pay with no internet?',
+    a: 'Before you go offline, you move some USDC into a reserve held on the blockchain. Offline, your phone signs a payment against that reserve and shows it as a QR code. The other person scans it, and whichever phone gets a connection first submits it to settle.',
   },
   {
-    q: 'How can a payment work with no internet?',
-    a: 'Before you go offline, you top up a reserve that sits on the blockchain. Offline, your phone signs a payment against that reserve and shows it as a QR code. The other person scans it and holds a payment that is already backed. Whichever phone gets online first submits it, and it settles.',
+    q: 'What if the person paying me offline cheats?',
+    a: 'A payment is backed by the payer’s on-chain reserve, and you can check that it is funded as soon as you have any connection. Until it settles it is still a promise, so you choose how much you will accept offline from any one person (the default is $100). Settle as soon as you are online.',
   },
   {
-    q: 'Does Wayamesh hold my money?',
-    a: 'No. Wayamesh is self-custody. Your keys are created and kept on your device, protected by your PIN or fingerprint. We have no account system and cannot move your funds.',
+    q: 'Who holds my money?',
+    a: 'You do. Your keys are created and kept on your device, and Wayamesh cannot move or freeze your funds. That also means we cannot recover a lost wallet: write down your recovery phrase and keep it safe.',
   },
   {
-    q: 'Can someone change the amount after I pay?',
-    a: 'No. The payment is signed by your phone. Changing the amount or the recipient breaks the signature and the network rejects it.',
+    q: 'What does it cost, and is it live?',
+    a: 'It is a testnet beta using free test USDC, so no real money moves yet. Wayamesh takes no cut: a small courier tip (0.01 USDC by default) goes to whoever settles your payment, and network fees are paid in USDC. Mainnet launch follows an independent security audit.',
   },
   {
-    q: 'What is USDC?',
-    a: 'USDC is a digital dollar issued by Circle. One USDC is designed to be redeemable for one US dollar, so your balance doesn’t swing like other crypto.',
-  },
-  {
-    q: 'Which phones does it work on?',
-    a: 'The Android app is available now as a beta, and the web wallet works in any modern browser. iPhone support is coming. QR payments work between any two devices; Bluetooth handoff is Android only.',
+    q: 'Which devices does it work on?',
+    a: 'The Android beta and the web wallet, which runs in any modern browser with nothing to install. iPhone is coming. QR payments work between any two devices; Bluetooth hand-off is Android-only and still in beta.',
   },
 ];
 
@@ -206,14 +202,12 @@ export default function Home() {
         {/* ── Product ───────────────────────────────────── */}
         <section className="sec sec-compact" id="product">
           <div className="wrap">
-            <div className="sec-head" data-reveal>
-              <span className="eyebrow">The product</span>
-              <h2>One wallet. <em>Every situation.</em></h2>
-              <p>Everything you expect from a modern money app, plus the one thing none of them can do: keep working offline.</p>
-            </div>
             <div className="product" data-reveal>
               <div className="product-copy">
-                <p>
+                <span className="eyebrow">The product</span>
+                <h2>One wallet. <em>Every situation.</em></h2>
+                <p className="product-lead">Everything you expect from a modern money app, plus the one thing none of them can do: keep working offline.</p>
+                <p className="product-body">
                   Create a wallet in a minute, add test dollars and pay face to face. Ask for a payment with a request
                   code and the other phone scans it.
                 </p>

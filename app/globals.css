@@ -667,11 +667,15 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .nav-burger { color: inherit; }
 
 /* Product (compact) */
-.sec-compact { padding: 88px 0; }
-.sec-compact .sec-head { margin-bottom: 40px; }
-.product { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; align-items: center; }
-.product-copy p { font-size: 18px; color: var(--muted); max-width: 460px; margin-bottom: 24px; }
-.checks { list-style: none; display: grid; gap: 12px; margin-bottom: 32px; font-size: 16px; }
+.sec-compact { padding: 72px 0; }
+.product { display: grid; grid-template-columns: 0.95fr 1.05fr; gap: 48px; align-items: center; }
+.product-copy { max-width: 520px; }
+.product-copy .eyebrow { display: block; margin-bottom: 10px; }
+.product-copy h2 { font-size: clamp(30px, 3.4vw, 42px); line-height: 1.1; margin: 0 0 14px; }
+.product-copy h2 em { color: var(--muted); }
+.product-lead { font-size: 17px; color: var(--muted); margin: 0 0 12px; }
+.product-body { font-size: 16px; color: var(--text); margin: 0 0 20px; }
+.checks { list-style: none; display: grid; gap: 10px; margin: 0 0 26px; font-size: 16px; padding: 0; }
 .checks li { display: flex; gap: 12px; align-items: center; }
 .checks li::before {
   content: ""; width: 20px; height: 20px; flex: none; border-radius: 50%;
