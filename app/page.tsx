@@ -120,13 +120,6 @@ export default function Home() {
         <section className="hero">
           <div className="wrap hero-grid">
             <div className="hero-copy">
-              <div className="chips" data-reveal>
-                <a href="#roadmap" className="pill">
-                  <span className="pill-dot" />
-                  Roadmap
-                  <i className="ti ti-arrow-right" aria-hidden="true" />
-                </a>
-              </div>
               <h1 data-reveal>
                 Money that keeps moving <em>when the internet stops.</em>
               </h1>
@@ -138,7 +131,7 @@ export default function Home() {
                 <a href="#get" className="btn btn-primary btn-lg">
                   Get the app <i className="ti ti-arrow-right" aria-hidden="true" />
                 </a>
-                <a href="/app" className="btn btn-ghost btn-lg">Try it in your browser</a>
+                <a href="#roadmap" className="btn btn-ghost btn-lg">Roadmap</a>
               </div>
               <ul className="hero-proof" data-reveal>
                 <li>You hold your keys</li>
