@@ -86,6 +86,45 @@ const ROADMAP = [
   },
 ];
 
+const RISKS = [
+  {
+    icon: 'ti-building-bank',
+    risk: 'A company holds your money',
+    title: 'Nobody can drain what they don’t hold',
+    body: 'Your keys are created and stay on your device. Wayamesh has no custody, no accounts and no database of balances to breach.',
+  },
+  {
+    icon: 'ti-key',
+    risk: 'A stolen admin key',
+    title: 'There is no admin key to steal',
+    body: 'The settlement contract has no owner, admin, pause or upgrade switch. Nobody, including us, can freeze, redirect or rewrite it.',
+  },
+  {
+    icon: 'ti-signature',
+    risk: 'A payment altered on the way',
+    title: 'Signed, sealed and single-use',
+    body: 'Every payment is signed by the sender’s key, so changing one digit gets it rejected. Each one can settle only once and expires after 24 hours.',
+  },
+  {
+    icon: 'ti-fingerprint',
+    risk: 'A lost or borrowed phone',
+    title: 'Locked, with limits you control',
+    body: 'Keys sit behind your fingerprint or screen lock on Android and PIN encryption in the browser. You set per-payment and daily limits, and raising them needs you to re-authenticate.',
+  },
+  {
+    icon: 'ti-bug',
+    risk: 'Hostile codes and messages',
+    title: 'Every input is checked',
+    body: 'Payments, QR codes and chat messages are validated before anything is stored. Chats are end-to-end encrypted and disappear after 24 hours.',
+  },
+  {
+    icon: 'ti-scale',
+    risk: 'Someone you pay offline cheats',
+    title: 'You choose how much to trust',
+    body: 'Each payment is backed by the payer’s on-chain reserve and you can check it is funded. You set the most you will accept from any one person, and settle as soon as you are online.',
+  },
+];
+
 const FAQ = [
   {
     q: 'How can I pay with no internet?',
@@ -287,14 +326,49 @@ export default function Home() {
 
         {/* ── Security ──────────────────────────────────── */}
         <section className="sec" id="security">
-          <div className="wrap security">
-            <div className="sec-head sec-head-left" data-reveal>
+          <div className="wrap">
+            <div className="sec-head" data-reveal>
               <span className="eyebrow">Security</span>
               <h2>Trust built into <em>every payment.</em></h2>
-              <p>Offline doesn’t mean unprotected. Every safeguard is enforced by code, not by promises.</p>
+              <p>
+                Offline doesn’t mean unprotected. Most crypto losses come from someone else holding your money, or from
+                a hidden admin switch. Wayamesh is built so neither exists, and every safeguard is enforced by code, not by promises.
+              </p>
+            </div>
+
+            <div className="risk-grid">
+              {RISKS.map((r, i) => (
+                <article className="risk-card" key={r.title} data-reveal style={{ transitionDelay: `${i * 60}ms` }}>
+                  <span className="risk-icon" aria-hidden="true"><i className={`ti ${r.icon}`} /></span>
+                  <p className="risk-label">{r.risk}</p>
+                  <h3>{r.title}</h3>
+                  <p>{r.body}</p>
+                </article>
+              ))}
+            </div>
+
+            <div className="proof" data-reveal>
+              <a href={ARCSCAN} className="proof-item" target="_blank" rel="noopener noreferrer">
+                <b>Verified</b>
+                <span>Contract source published on the Arc explorer <i className="ti ti-arrow-up-right" aria-hidden="true" /></span>
+              </a>
+              <div className="proof-item"><b>50</b><span>contract tests, including fuzz and invariant checks</span></div>
+              <div className="proof-item"><b>33</b><span>hostile-input checks on the wallet</span></div>
+              <div className="proof-item"><b>0</b><span>admin, pause or upgrade keys in the contract</span></div>
+            </div>
+
+            <div className="honest" data-reveal>
+              <div>
+                <h3>What we don’t claim yet</h3>
+                <p>
+                  Wayamesh runs on a test network with test money. It has not had an independent audit; one is planned
+                  before any real funds. Until a payment settles it is a promise, which is why you set the most you will
+                  accept from anyone. Nothing is unhackable, so we publish what is and isn’t protected.
+                </p>
+              </div>
               <div className="sec-links">
-                <a href={SECURITY_NOTES} className="link" target="_blank" rel="noopener noreferrer">
-                  Security notes <i className="ti ti-arrow-up-right" aria-hidden="true" />
+                <a href={SECURITY_NOTES} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+                  Read the security notes <i className="ti ti-arrow-up-right" aria-hidden="true" />
                 </a>
                 <a href={ARCSCAN} className="status-chip" target="_blank" rel="noopener noreferrer">
                   <span className="pill-dot" />
@@ -302,23 +376,6 @@ export default function Home() {
                   <i className="ti ti-arrow-up-right" aria-hidden="true" />
                 </a>
               </div>
-              <figure className="browser browser-flat">
-                <div className="browser-bar" aria-hidden="true"><span /><span /><span /><em>wayamesh.xyz/app</em></div>
-                <img src="/screens/d-send.webp" alt="The Wayamesh send screen in the web wallet" width={1280} height={800} loading="lazy" decoding="async" />
-              </figure>
-            </div>
-            <div className="sec-grid">
-              {[
-                { t: 'Reserve-backed', b: 'Offline payments draw on funds already locked on-chain, so the receiver can check the money is there. Until a payment settles it is still a promise, so receivers cap what they hold from any one payer.' },
-                { t: 'Tamper-proof', b: 'Every payment is cryptographically signed. Change one digit and it’s rejected.' },
-                { t: 'Self-custody', b: 'Your keys never leave your device. Wayamesh can’t freeze or move your money. Keep your seed phrase safe: it is the only recovery.' },
-                { t: 'Spending limits you set', b: 'Automations and AI agents can only pay within the per-payment, daily and total caps you choose.' },
-              ].map((s, i) => (
-                <div className="sec-card" key={s.t} data-reveal style={{ transitionDelay: `${i * 70}ms` }}>
-                  <h3>{s.t}</h3>
-                  <p>{s.b}</p>
-                </div>
-              ))}
             </div>
           </div>
         </section>
