@@ -247,7 +247,7 @@ export default function Home() {
             </ol>
             <p className="steps-note" data-reveal>
               <i className="ti ti-lock" aria-hidden="true" />
-              The QR code is the payment itself, signed by the sender. Anyone can deliver it to the network. No one can change it.
+              The payment is signed by the sender and handed over as a QR code, or over Bluetooth on Android (beta). Anyone can deliver it to the network. No one can change it.
             </p>
             <Demo />
           </div>
