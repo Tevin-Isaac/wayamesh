@@ -50,6 +50,9 @@ export default function Privacy() {
       <p>
         The Android beta keeps keys on your device in the same way as the web wallet and talks to the same kinds of services (Arc Testnet RPC, Nostr relays). Bluetooth hand-off is an Android-only beta and works between phones near each other.
       </p>
+      <p>
+        If you use the optional &ldquo;Ask your wallet&rdquo; assistant in the Android app, the question you type and the wallet information it needs to answer (such as your balance and recent activity) are sent to Anthropic&rsquo;s API, a third party with its own terms and privacy policy. The assistant can only propose payments; your spending limits decide what is allowed. This feature is a beta and is optional.
+      </p>
 
       <h2>What we do not do</h2>
       <ul>
