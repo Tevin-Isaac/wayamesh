@@ -37,7 +37,8 @@ export default function Privacy() {
         <li><b>Fonts:</b> the wallet page loads fonts from Google Fonts, so your browser contacts Google for those files.</li>
         <li><b>Arc Testnet:</b> to show balances and submit transactions, the wallet talks to public Arc Testnet RPC providers. They can see your IP address and the addresses and transactions you query or send. Anything sent to the blockchain is public.</li>
         <li><b>Chat:</b> messages are end-to-end encrypted on your device and sent through public Nostr relays. The relays cannot read the contents but can see network addresses, public keys and timing. Messages expire after 24 hours, although relays and other recipients are outside our control and we cannot guarantee deletion.</li>
-        <li><b>Connecting another wallet:</b> if you choose to connect an external wallet, the connection may go through WalletConnect&rsquo;s relay service.</li>
+        <li><b>Connecting another wallet:</b> if you choose to connect an external wallet, the connection goes through WalletConnect&rsquo;s relay service (run by Reown), which sees technical data such as your IP address and which wallet you connect. To show that wallet&rsquo;s USDC balances, the wallet page then reads the connected address from the public RPC providers of Arc and of other networks such as Ethereum, Base, Polygon, Arbitrum, Optimism and Avalanche. Those providers can see your IP address and the address you query. This only happens if you connect a wallet.</li>
+        <li><b>Online status:</b> to tell you honestly whether you are online, the wallet checks reachability with a small request to a font host and the Arc RPC every few seconds while it is open.</li>
         <li><b>Circle services:</b> some testnet features call Circle&rsquo;s test services. Circle&rsquo;s own terms and privacy notice apply to those calls.</li>
       </ul>
 
@@ -49,6 +50,9 @@ export default function Privacy() {
       <h2>The Android app</h2>
       <p>
         The Android beta keeps keys on your device in the same way as the web wallet and talks to the same kinds of services (Arc Testnet RPC, Nostr relays). Bluetooth hand-off is an Android-only beta and works between phones near each other.
+      </p>
+      <p>
+        The Android app can also connect another wallet app through WalletConnect, only if you open Settings &rarr; External wallet and choose to. The app then shares technical data with WalletConnect&rsquo;s relay service and with the wallet app you pick, and that wallet app asks you to approve every action. Contacts you save, including the names and addresses you enter, stay on your device until you delete them.
       </p>
       <p>
         If you use the optional &ldquo;Ask your wallet&rdquo; assistant in the Android app, the question you type and the wallet information it needs to answer (such as your balance and recent activity) are sent to Anthropic&rsquo;s API, a third party with its own terms and privacy policy. The assistant can only propose payments; your spending limits decide what is allowed. This feature is a beta and is optional.
