@@ -2,6 +2,7 @@
 
 /* eslint-disable @next/next/no-img-element */
 import { useEffect, useState } from 'react';
+import ThemeToggle from './ThemeToggle';
 
 const LINKS = [
   { href: '#product', label: 'Product' },
@@ -42,6 +43,7 @@ export default function Nav() {
 
         <div className="nav-actions">
           <a href="/app" className="nav-signin">Open wallet</a>
+          <ThemeToggle />
           <a href="#get" className="btn btn-sm btn-primary">Get the app</a>
           <button
             className="nav-burger"

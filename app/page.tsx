@@ -3,9 +3,12 @@ import Nav from './components/Nav';
 import HeroVideo from './components/HeroVideo';
 import Reveal from './components/Reveal';
 import Marquee from './components/Marquee';
+import Demo from './components/Demo';
 import SocialLinks from './components/SocialLinks';
 
 const APK = 'https://github.com/Tevin-Isaac/wayamesh-mobile/releases/latest/download/wayamesh-beta.apk';
+const ARCSCAN = 'https://testnet.arcscan.app/address/0xd619b77bb8389a632800c300969ef152099f7691';
+const SECURITY_NOTES = 'https://github.com/Tevin-Isaac/wayamesh-mobile/blob/master/SECURITY.md';
 const CONTACT = 'mailto:isaactevin67@gmail.com';
 
 const STATS = [
@@ -108,14 +111,6 @@ const FAQ = [
   },
 ];
 
-function Phone({ src, alt, className = '' }: { src: string; alt: string; className?: string }) {
-  return (
-    <div className={`phone ${className}`}>
-      <img src={src} alt={alt} width={390} height={844} loading="lazy" />
-    </div>
-  );
-}
-
 export default function Home() {
   return (
     <>
@@ -127,10 +122,16 @@ export default function Home() {
         <section className="hero">
           <div className="wrap hero-grid">
             <div className="hero-copy">
-              <a href="#roadmap" className="pill" data-reveal>
-                <span className="pill-dot" />
-                Testnet beta · test USDC
-              </a>
+              <div className="chips" data-reveal>
+                <a href="#roadmap" className="pill">
+                  <span className="pill-dot" />
+                  Testnet beta · test USDC
+                </a>
+                <a href={ARCSCAN} className="pill pill-ext" target="_blank" rel="noopener noreferrer">
+                  Live on Arc Testnet
+                  <i className="ti ti-arrow-up-right" aria-hidden="true" />
+                </a>
+              </div>
               <h1 data-reveal>
                 Money that keeps moving <em>when the internet stops.</em>
               </h1>
@@ -201,70 +202,34 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ── Product bento ─────────────────────────────── */}
-        <section className="sec" id="product">
+        {/* ── Product ───────────────────────────────────── */}
+        <section className="sec sec-compact" id="product">
           <div className="wrap">
             <div className="sec-head" data-reveal>
               <span className="eyebrow">The product</span>
               <h2>One wallet. <em>Every situation.</em></h2>
               <p>Everything you expect from a modern money app, plus the one thing none of them can do: keep working offline.</p>
             </div>
-
-            <div className="bento">
-              <article className="tile tile-hero" data-reveal>
-                <div className="tile-copy">
-                  <h3>Pay with zero bars</h3>
-                  <p>Send money in a basement, a bus or a blackout. Your phone signs the payment and the other person scans it. Done.</p>
-                  <ul className="ticks">
-                    <li>Backed by an on-chain reserve</li>
-                    <li>Signed: amount and recipient can’t be changed</li>
-                    <li>Settles once anyone is online</li>
-                  </ul>
+            <div className="product" data-reveal>
+              <div className="product-copy">
+                <p>
+                  Create a wallet in a minute, add test dollars and pay face to face. Ask for a payment with a request
+                  code and the other phone scans it.
+                </p>
+                <ul className="checks">
+                  <li>Works with no signal</li>
+                  <li>Backed by an on-chain reserve</li>
+                  <li>Your keys stay on your device</li>
+                </ul>
+                <a href="/app" className="btn btn-primary btn-lg">
+                  Open web wallet <i className="ti ti-arrow-right" aria-hidden="true" />
+                </a>
+              </div>
+              <div className="stage">
+                <div className="device">
+                  <img src="/screens/product-qr.webp" alt="The Wayamesh Receive screen showing a payment request QR code for 5.00 USDC" width={780} height={1688} loading="lazy" decoding="async" />
                 </div>
-                <div className="tile-phones">
-                  <Phone src="/screens/m-wallet.webp" alt="Wayamesh wallet home screen" className="phone-front" />
-                </div>
-              </article>
-
-              <article className="tile" data-reveal>
-                <h3>Scan to pay</h3>
-                <p>Works between any two devices, phone or browser. On Android, Bluetooth hand-off is in beta.</p>
-                <div className="tile-art art-qr" aria-hidden="true">
-                  <img src="/screens/m-receive.webp" alt="" width={780} height={1688} loading="lazy" />
-                </div>
-              </article>
-
-              <article className="tile" data-reveal>
-                <h3>M-Pesa top-up and cash-out</h3>
-                <p>Add money from M-Pesa and cash out to it, with no exchange account or bank. Running as a demo on test USDC for now.</p>
-                <div className="tile-art art-rail" aria-hidden="true">
-                  <div className="rail-row"><span>M-Pesa</span><b>KES 3,250</b></div>
-                  <i className="ti ti-arrow-down" />
-                  <div className="rail-row rail-row-accent"><span>Wayamesh</span><b>25.00 USDC</b></div>
-                </div>
-              </article>
-
-
-
-              <article className="tile tile-wide" data-reveal>
-                <div className="tile-copy">
-                  <h3>Also in your browser</h3>
-                  <p>The same wallet runs on any laptop or phone browser. Nothing to install.</p>
-                  <a href="/app" className="link">Open the web wallet <i className="ti ti-arrow-right" aria-hidden="true" /></a>
-                </div>
-                <div className="browser" aria-hidden="true">
-                  <div className="browser-bar"><span /><span /><span /><em>wayamesh.xyz/app</em></div>
-                  <img src="/screens/d-wallet.webp" alt="" width={1280} height={800} loading="lazy" />
-                </div>
-              </article>
-              <article className="tile" data-reveal>
-                <h3>Spending limits for automations</h3>
-                <p>Let an app or AI agent pay on your behalf, with per-payment, daily and total caps it can’t exceed.</p>
-                <div className="tile-art art-limits" aria-hidden="true">
-                  <div className="limit"><span>Daily cap</span><div className="bar"><i style={{ width: '62%' }} /></div><b>$31 / $50</b></div>
-                  <div className="limit"><span>Per payment</span><div className="bar"><i style={{ width: '40%' }} /></div><b>$10 max</b></div>
-                </div>
-              </article>
+              </div>
             </div>
           </div>
         </section>
@@ -291,6 +256,7 @@ export default function Home() {
               <i className="ti ti-lock" aria-hidden="true" />
               The QR code is the payment itself, signed by the sender. Anyone can deliver it to the network. No one can change it.
             </p>
+            <Demo />
           </div>
         </section>
 
@@ -340,6 +306,9 @@ export default function Home() {
               <span className="eyebrow">Security</span>
               <h2>Trust built into <em>every payment.</em></h2>
               <p>Offline doesn’t mean unprotected. Every safeguard is enforced by code, not by promises.</p>
+              <a href={SECURITY_NOTES} className="link" target="_blank" rel="noopener noreferrer">
+                Security notes <i className="ti ti-arrow-up-right" aria-hidden="true" />
+              </a>
               <figure className="browser browser-flat">
                 <div className="browser-bar" aria-hidden="true"><span /><span /><span /><em>wayamesh.xyz/app</em></div>
                 <img src="/screens/d-send.webp" alt="The Wayamesh send screen in the web wallet" width={1280} height={800} loading="lazy" decoding="async" />
@@ -435,9 +404,10 @@ export default function Home() {
                 <a href="https://faucet.circle.com" target="_blank" rel="noopener noreferrer">faucet.circle.com</a>.
               </p>
             </div>
-            <div className="get-phones" data-reveal aria-hidden="true">
-              <Phone src="/screens/m-send.webp" alt="" className="phone-front" />
-            </div>
+            <figure className="browser browser-flat get-visual" data-reveal>
+              <div className="browser-bar" aria-hidden="true"><span /><span /><span /><em>wayamesh.xyz/app</em></div>
+              <img src="/screens/d-wallet.webp" alt="The Wayamesh web wallet home screen" width={1280} height={800} loading="lazy" decoding="async" />
+            </figure>
           </div>
         </section>
 
@@ -487,6 +457,8 @@ export default function Home() {
           </div>
           <div className="foot-col">
             <h4>Resources</h4>
+            <a href={SECURITY_NOTES} target="_blank" rel="noopener noreferrer">Security notes</a>
+            <a href={ARCSCAN} target="_blank" rel="noopener noreferrer">Contract on ArcScan</a>
             <a href="#faq">FAQ</a>
             <a href="https://faucet.circle.com" target="_blank" rel="noopener noreferrer">Test USDC faucet</a>
           </div>

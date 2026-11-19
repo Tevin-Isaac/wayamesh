@@ -29,5 +29,23 @@ export default function Reveal() {
     return () => obs.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const img = document.querySelector<HTMLElement>('.band-img');
+    const band = img?.parentElement;
+    if (!img || !band) return;
+    let raf = 0;
+    const tick = () => {
+      raf = 0;
+      const r = band.getBoundingClientRect();
+      const mid = r.top + r.height / 2 - window.innerHeight / 2;
+      img.style.setProperty('--py', `${Math.max(-60, Math.min(60, -mid * 0.08)).toFixed(1)}px`);
+    };
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(tick); };
+    tick();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => { window.removeEventListener('scroll', onScroll); if (raf) cancelAnimationFrame(raf); };
+  }, []);
+
   return null;
 }

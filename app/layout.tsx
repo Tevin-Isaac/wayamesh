@@ -38,6 +38,10 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <head>
+        <meta name="color-scheme" content="light dark" />
+        <meta name="theme-color" content="#fafaf7" />
+        {/* Blocking: sets data-theme before first paint so there is no flash. Key and values are shared with the wallet at /app. */}
+        <script dangerouslySetInnerHTML={{ __html: `(function(){try{var p=null;try{p=localStorage.getItem('wayamesh-theme')}catch(e){}var d=p==='dark'||(p!=='light'&&window.matchMedia('(prefers-color-scheme: dark)').matches);var t=d?'dark':'light',r=document.documentElement;r.setAttribute('data-theme',t);r.style.colorScheme=t;var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',d?'#0b0f14':'#fafaf7')}catch(e){}})()` }} />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css" />
         {/* Reveal animations only run when JS is on; without it everything is visible. */}
         <script dangerouslySetInnerHTML={{ __html: `document.documentElement.classList.add('js')` }} />
