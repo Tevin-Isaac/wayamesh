@@ -13,8 +13,9 @@ const WALLET_CSP = [
   "font-src 'self' data: https://fonts.gstatic.com",
   "img-src 'self' data: blob: https:",
   "media-src 'self' blob:",
-  // WalletConnect/Reown hosts are only used by the OPTIONAL "connect an external wallet" feature in Settings.
-  "connect-src 'self' wss://relay.walletconnect.com wss://relay.walletconnect.org https://*.walletconnect.com https://*.walletconnect.org https://*.reown.com https://*.arc.io https://*.arc.network https://ethereum.reth.rs wss://nos.lol wss://relay.primal.net https://fonts.googleapis.com https://fonts.gstatic.com",
+  // WalletConnect/Reown hosts and the public RPCs below are only used by the OPTIONAL "connect an external wallet"
+  // feature in Settings: it reads the connected address's USDC balance (read-only) on Arc and six other networks.
+  "connect-src 'self' wss://relay.walletconnect.com wss://relay.walletconnect.org https://*.walletconnect.com https://*.walletconnect.org https://*.reown.com https://ethereum-rpc.publicnode.com https://polygon-bor-rpc.publicnode.com https://mainnet.base.org https://arb1.arbitrum.io https://mainnet.optimism.io https://api.avax.network https://*.arc.io https://*.arc.network https://ethereum.reth.rs wss://nos.lol wss://relay.primal.net https://fonts.googleapis.com https://fonts.gstatic.com",
   "frame-src https://*.arc.io https://verify.walletconnect.com https://verify.walletconnect.org",
   "worker-src 'self' blob:",
   "manifest-src 'self'",
