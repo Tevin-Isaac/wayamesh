@@ -42,7 +42,7 @@ export default function Nav() {
         </nav>
 
         <div className="nav-actions">
-          <a href="/app" className="nav-signin">Open wallet</a>
+          <a href="/app" className="btn btn-sm btn-ghost nav-wallet">Open wallet</a>
           <ThemeToggle />
           <a href="#get" className="btn btn-sm btn-primary">Get the app</a>
           <button
@@ -60,7 +60,7 @@ export default function Nav() {
         {LINKS.map(l => (
           <a key={l.href} href={l.href} onClick={() => setOpen(false)}>{l.label}</a>
         ))}
-        <a href="/app" onClick={() => setOpen(false)}>Open web wallet</a>
+        <a href="/app" className="btn btn-ghost" onClick={() => setOpen(false)}>Open web wallet</a>
         <a href="#get" className="btn btn-primary" onClick={() => setOpen(false)}>Get the app</a>
       </div>
     </header>

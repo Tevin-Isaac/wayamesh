@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 type Pref = 'system' | 'light' | 'dark';
 const KEY = 'wayamesh-theme';
@@ -48,81 +48,38 @@ const ICON: Record<'light' | 'dark' | 'system', React.ReactNode> = {
   ),
 };
 
-const OPTIONS: { v: Pref; label: string }[] = [
-  { v: 'system', label: 'System' },
-  { v: 'light', label: 'Light' },
-  { v: 'dark', label: 'Dark' },
-];
-
 export default function ThemeToggle() {
-  const [pref, setPref] = useState<Pref>('system');
   const [resolved, setResolved] = useState<'light' | 'dark'>('light');
-  const [open, setOpen] = useState(false);
-  const root = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const p = readPref();
-    setPref(p);
-    setResolved(apply(p));
+    setResolved(apply(readPref()));
     const mq = window.matchMedia('(prefers-color-scheme: dark)');
+    // Until the visitor clicks, follow the operating system live.
     const onMq = () => { if (readPref() === 'system') setResolved(apply('system')); };
-    const onStorage = (e: StorageEvent) => {
-      if (e.key === KEY) { const n = readPref(); setPref(n); setResolved(apply(n)); }
-    };
+    // Keep other tabs (and the web wallet at /app, same origin) in step.
+    const onStorage = (e: StorageEvent) => { if (e.key === KEY) setResolved(apply(readPref())); };
     mq.addEventListener('change', onMq);
     window.addEventListener('storage', onStorage);
     return () => { mq.removeEventListener('change', onMq); window.removeEventListener('storage', onStorage); };
   }, []);
 
-  useEffect(() => {
-    if (!open) return;
-    const onDoc = (e: MouseEvent) => { if (root.current && !root.current.contains(e.target as Node)) setOpen(false); };
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') { setOpen(false); root.current?.querySelector<HTMLButtonElement>('.theme-btn')?.focus(); }
-    };
-    document.addEventListener('mousedown', onDoc);
-    document.addEventListener('keydown', onKey);
-    return () => { document.removeEventListener('mousedown', onDoc); document.removeEventListener('keydown', onKey); };
-  }, [open]);
+  const flip = useCallback(() => {
+    const next: 'light' | 'dark' = resolved === 'dark' ? 'light' : 'dark';
+    try { localStorage.setItem(KEY, next); } catch {}
+    setResolved(apply(next));
+  }, [resolved]);
 
-  const choose = useCallback((v: Pref) => {
-    try { if (v === 'system') localStorage.removeItem(KEY); else localStorage.setItem(KEY, v); } catch {}
-    setPref(v);
-    setResolved(apply(v));
-    setOpen(false);
-  }, []);
-
+  // The icon shows where a click takes you: a sun in dark mode, a moon in light mode.
+  const target = resolved === 'dark' ? 'light' : 'dark';
   return (
-    <div className="theme" ref={root}>
-      <button
-        type="button"
-        className="theme-btn"
-        aria-label={`Colour theme: ${pref}. Change theme`}
-        aria-haspopup="menu"
-        aria-expanded={open}
-        title="Theme"
-        onClick={() => setOpen(o => !o)}
-      >
-        {ICON[resolved]}
-      </button>
-      {open && (
-        <div className="theme-menu" role="menu" aria-label="Colour theme">
-          {OPTIONS.map(o => (
-            <button
-              key={o.v}
-              type="button"
-              role="menuitemradio"
-              aria-checked={pref === o.v}
-              className="theme-item"
-              onClick={() => choose(o.v)}
-            >
-              {ICON[o.v]}
-              <span>{o.label}</span>
-              {pref === o.v && <i className="ti ti-check" aria-hidden="true" />}
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
+    <button
+      type="button"
+      className="theme-btn"
+      aria-label={`Switch to ${target} mode`}
+      title={`Switch to ${target} mode`}
+      onClick={flip}
+    >
+      {ICON[target]}
+    </button>
   );
 }

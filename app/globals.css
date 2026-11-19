@@ -188,8 +188,6 @@ p { text-wrap: pretty; }
 .nav-links a { opacity: 0.72; transition: opacity 0.2s; }
 .nav-links a:hover { opacity: 1; }
 .nav-actions { display: flex; align-items: center; gap: 18px; margin-left: auto; }
-.nav-signin { font-size: 14.5px; opacity: 0.8; }
-.nav-signin:hover { opacity: 1; }
 .nav-burger {
   display: none;
   width: 40px;
@@ -564,7 +562,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
    RESPONSIVE
 ═══════════════════════════════════════ */
 @media (max-width: 1020px) {
-  .nav-links, .nav-signin { display: none; }
+  .nav-links, .nav-wallet { display: none; }
   .nav-burger { display: grid; place-items: center; }
   .hero-grid { grid-template-columns: 1fr; gap: 40px; }
   .hero-visual { max-width: 560px; width: 100%; }
@@ -659,19 +657,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 }
 .nav-scrolled .theme-btn, .nav-open .theme-btn { border-color: var(--line); }
 .theme-btn:hover { background: var(--hero-chip); border-color: var(--faint); }
-.theme-menu {
-  position: absolute; right: 0; top: calc(100% + 8px); min-width: 164px; padding: 6px; z-index: 60;
-  background: var(--card); color: var(--text); border: 1px solid var(--line); border-radius: 12px;
-  box-shadow: 0 18px 40px -14px rgba(0,0,0,0.35);
-}
-.theme-item {
-  width: 100%; display: flex; align-items: center; gap: 10px; padding: 9px 10px; border: 0; border-radius: 8px;
-  background: transparent; color: inherit; font: inherit; font-size: 14.5px; text-align: left; cursor: pointer;
-}
-.theme-item:hover { background: var(--soft); }
-.theme-item span { flex: 1; }
-.theme-item .ti { color: var(--brand-ink); }
-.theme-item[aria-checked="true"] { font-weight: 600; }
 
 /* Nav: animated underline, compact on scroll */
 .nav-links a { position: relative; padding: 6px 0; }
