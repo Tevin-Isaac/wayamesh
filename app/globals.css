@@ -789,3 +789,17 @@ main:focus { outline: none; }
 .legal-back { margin-top: 44px; }
 .legal-foot { border-top: 1px solid var(--line); padding: 24px 0; font-size: 13.5px; color: var(--muted); }
 .legal-foot .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; }
+
+/* Back to top */
+.to-top {
+  position: fixed; right: 20px; bottom: 20px; z-index: 50; width: 46px; height: 46px; display: grid; place-items: center;
+  border-radius: 50%; border: 1px solid var(--line); background: var(--card); color: var(--text); cursor: pointer;
+  box-shadow: 0 10px 24px -10px rgba(0, 0, 0, 0.45);
+  opacity: 0; transform: translateY(12px); pointer-events: none;
+  transition: opacity 0.25s var(--ease), transform 0.25s var(--ease), background 0.2s, border-color 0.2s;
+}
+.to-top-show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.to-top:hover { background: var(--brand); color: #04201a; border-color: var(--brand); transform: translateY(-2px); }
+.to-top:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
+@media (prefers-reduced-motion: reduce) { .to-top { transition: none; } }
+@media (max-width: 640px) { .to-top { right: 14px; bottom: 14px; width: 44px; height: 44px; } }

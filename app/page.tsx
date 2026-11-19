@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import Nav from './components/Nav';
+import BackToTop from './components/BackToTop';
 import HeroVideo from './components/HeroVideo';
 import Reveal from './components/Reveal';
 import Marquee from './components/Marquee';
@@ -425,6 +426,8 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      <BackToTop />
 
       <footer className="foot">
         <div className="wrap foot-grid">
