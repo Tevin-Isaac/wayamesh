@@ -37,28 +37,28 @@ const STEPS = [
 const AUDIENCES = [
   {
     photo: '/photos/aud-merchants.webp',
-    alt: 'A smiling kiosk owner holding a phone at her market stall',
+    alt: 'A street food vendor serving customers at his cart on a busy market street',
     tag: 'Merchants',
     title: 'Take payments in the market, not just where there’s Wi-Fi',
-    body: 'Stalls, kiosks and boda riders get paid in stable dollars on the spot, with no card machine and no failed transactions when the network drops.',
+    body: 'Stalls, kiosks and street vendors get paid in stable dollars on the spot, with no card machine and no failed transactions when the network drops.',
   },
   {
     photo: '/photos/aud-families.webp',
-    alt: 'Three women and girls in bright patterned clothes looking at a phone together',
+    alt: 'A family of five sitting together on stone steps outdoors at sunset',
     tag: 'Families',
     title: 'Money sent home that is ready to spend',
     body: 'Relatives receive USDC and can pay the shop down the road with it, even in a village with one bar of signal.',
   },
   {
     photo: '/photos/aud-aid.webp',
-    alt: 'A community health worker taking a patient’s blood pressure at an outdoor clinic',
+    alt: 'Three volunteers in matching yellow shirts leaning on a barrier at a public event',
     tag: 'Aid & NGOs',
     title: 'Cash assistance that reaches the last mile',
     body: 'Distribute funds that stay spendable in camps, rural areas and crisis zones, with every settled payment visible on-chain.',
   },
   {
     photo: '/photos/aud-communities.webp',
-    alt: 'A cheerful market trader with a thumbs up, phone in hand',
+    alt: 'People walking along a tram street in a city at golden hour',
     tag: 'Communities',
     title: 'An economy that keeps running through a shutdown',
     body: 'When networks are cut, people can still buy food and pay rent. Payments queue up safely and clear when service returns.',
@@ -67,61 +67,28 @@ const AUDIENCES = [
 
 const ROADMAP = [
   {
-    phase: 'Today',
+    phase: 'Now',
     state: 'live',
+    status: 'Live on testnet',
     title: 'Testnet beta',
-    items: ['Android app and web wallet', 'Offline payments by QR; Bluetooth on Android (experimental)', 'Agent spending limits', 'M-Pesa top-up and cash-out (testnet demo)'],
+    outcome: 'Try everything today with free test USDC.',
+    items: ['Android app and web wallet', 'Offline payments backed by an on-chain reserve', 'End-to-end encrypted chat that disappears in 24 hours', 'M-Pesa add money and cash out (testnet demo)'],
   },
   {
     phase: 'Next',
     state: 'next',
-    title: 'Real money',
-    items: ['Mainnet settlement on Arc', 'On-device fraud checks', 'Independent security audit', 'Play Store and App Store launch'],
+    status: 'Before any real funds',
+    title: 'Ready for real money',
+    outcome: 'Everything that has to be true before real funds move.',
+    items: ['Independent security audit and a public bug bounty', 'Arc mainnet launch, once the network is live', 'Bluetooth hand-off proven on real devices', 'Google Play and iPhone apps', 'M-Pesa with a licensed partner'],
   },
   {
-    phase: 'Then',
+    phase: 'Later',
     state: 'later',
+    status: 'After launch',
     title: 'Scale',
+    outcome: 'Reaching the people payments forgot.',
     items: ['Merchant tools and business accounts', 'Partner API for NGOs and mobile money', 'More countries and cash-out rails', 'Multi-hop Bluetooth mesh'],
-  },
-];
-
-const RISKS = [
-  {
-    icon: 'ti-building-bank',
-    risk: 'A company holds your money',
-    title: 'Nobody can drain what they don’t hold',
-    body: 'Your keys are created and stay on your device. Wayamesh has no custody, no accounts and no database of balances to breach.',
-  },
-  {
-    icon: 'ti-key',
-    risk: 'A stolen admin key',
-    title: 'There is no admin key to steal',
-    body: 'The settlement contract has no owner, admin, pause or upgrade switch. Nobody, including us, can freeze, redirect or rewrite it.',
-  },
-  {
-    icon: 'ti-signature',
-    risk: 'A payment altered on the way',
-    title: 'Signed, sealed and single-use',
-    body: 'Every payment is signed by the sender’s key, so changing one digit gets it rejected. Each one can settle only once and expires after 24 hours.',
-  },
-  {
-    icon: 'ti-fingerprint',
-    risk: 'A lost or borrowed phone',
-    title: 'Locked, with limits you control',
-    body: 'Keys sit behind your fingerprint or screen lock on Android and PIN encryption in the browser. You set per-payment and daily limits, and raising them needs you to re-authenticate.',
-  },
-  {
-    icon: 'ti-bug',
-    risk: 'Hostile codes and messages',
-    title: 'Every input is checked',
-    body: 'Payments, QR codes and chat messages are validated before anything is stored. Chats are end-to-end encrypted and disappear after 24 hours.',
-  },
-  {
-    icon: 'ti-scale',
-    risk: 'Someone you pay offline cheats',
-    title: 'You choose how much to trust',
-    body: 'Each payment is backed by the payer’s on-chain reserve and you can check it is funded. You set the most you will accept from any one person, and settle as soon as you are online.',
   },
 ];
 
@@ -213,7 +180,7 @@ export default function Home() {
             </div>
           </div>
           <div className="band">
-            <img src="/photos/band-city.webp" alt="A West African city skyline at sunset with a mobile network mast on the horizon" width={1600} height={700} loading="lazy" decoding="async" className="band-img" />
+            <img src="/photos/band-city.webp" alt="A city skyline at dusk with lit office towers" width={1600} height={700} loading="lazy" decoding="async" className="band-img" />
             <div className="band-shade" aria-hidden="true" />
             <div className="wrap">
             <div className="stats">
@@ -319,62 +286,53 @@ export default function Home() {
               <p>Why we’re building Wayamesh</p>
             </div>
             <div className="photo photo-tall" data-reveal>
-              <img src="/photos/story-vendor.webp" alt="A smiling food vendor in an apron looking at his phone" width={720} height={900} loading="lazy" decoding="async" />
+              <img src="/photos/story-vendor.webp" alt="A smiling street vendor holding a tray of bread rings on a city sidewalk" width={720} height={900} loading="lazy" decoding="async" />
             </div>
           </div>
         </section>
 
         {/* ── Security ──────────────────────────────────── */}
         <section className="sec" id="security">
-          <div className="wrap">
-            <div className="sec-head" data-reveal>
+          <div className="wrap split">
+            <div className="split-copy" data-reveal>
               <span className="eyebrow">Security</span>
               <h2>Trust built into <em>every payment.</em></h2>
-              <p>
+              <p className="lead">
                 Offline doesn’t mean unprotected. Most crypto losses come from someone else holding your money, or from
                 a hidden admin switch. Wayamesh is built so neither exists, and every safeguard is enforced by code, not by promises.
               </p>
-            </div>
-
-            <div className="risk-grid">
-              {RISKS.map((r, i) => (
-                <article className="risk-card" key={r.title} data-reveal style={{ transitionDelay: `${i * 60}ms` }}>
-                  <span className="risk-icon" aria-hidden="true"><i className={`ti ${r.icon}`} /></span>
-                  <p className="risk-label">{r.risk}</p>
-                  <h3>{r.title}</h3>
-                  <p>{r.body}</p>
-                </article>
-              ))}
-            </div>
-
-            <div className="proof" data-reveal>
-              <a href={ARCSCAN} className="proof-item" target="_blank" rel="noopener noreferrer">
-                <b>Verified</b>
-                <span>Contract source published on the Arc explorer <i className="ti ti-arrow-up-right" aria-hidden="true" /></span>
-              </a>
-              <div className="proof-item"><b>50</b><span>contract tests, including fuzz and invariant checks</span></div>
-              <div className="proof-item"><b>33</b><span>hostile-input checks on the wallet</span></div>
-              <div className="proof-item"><b>0</b><span>admin, pause or upgrade keys in the contract</span></div>
-            </div>
-
-            <div className="honest" data-reveal>
-              <div>
-                <h3>What we don’t claim yet</h3>
-                <p>
-                  Wayamesh runs on a test network with test money. It has not had an independent audit; one is planned
-                  before any real funds. Until a payment settles it is a promise, which is why you set the most you will
-                  accept from anyone. Nothing is unhackable, so we publish what is and isn’t protected.
-                </p>
-              </div>
+              <ul className="points">
+                <li>
+                  <span className="pt-icon" aria-hidden="true"><i className="ti ti-key" /></span>
+                  <div><b>Only you hold your keys</b><span>They stay on your device. No custody, no accounts and no balances to breach.</span></div>
+                </li>
+                <li>
+                  <span className="pt-icon" aria-hidden="true"><i className="ti ti-shield-lock" /></span>
+                  <div><b>No admin key to steal</b><span>The contract has no owner, pause or upgrade switch. Nobody, including us, can freeze it.</span></div>
+                </li>
+                <li>
+                  <span className="pt-icon" aria-hidden="true"><i className="ti ti-signature" /></span>
+                  <div><b>Every payment is signed and checked</b><span>Altered, replayed or expired payments are rejected, and you set your own limits.</span></div>
+                </li>
+              </ul>
+              <p className="fine">
+                Contract source verified on the explorer, 50 contract tests and 33 wallet checks. Testnet only, with no
+                independent audit yet; one is planned before any real funds.
+              </p>
               <div className="sec-links">
-                <a href={SECURITY_NOTES} className="btn btn-ghost" target="_blank" rel="noopener noreferrer">
-                  Read the security notes <i className="ti ti-arrow-up-right" aria-hidden="true" />
+                <a href={SECURITY_NOTES} className="link" target="_blank" rel="noopener noreferrer">
+                  Security notes <i className="ti ti-arrow-up-right" aria-hidden="true" />
                 </a>
                 <a href={ARCSCAN} className="status-chip" target="_blank" rel="noopener noreferrer">
                   <span className="pill-dot" />
                   Live on Arc Testnet
                   <i className="ti ti-arrow-up-right" aria-hidden="true" />
                 </a>
+              </div>
+            </div>
+            <div className="stage stage-sm" data-reveal>
+              <div className="device">
+                <img src="/screens/sec-security.webp" alt="The Wayamesh Security screen: protected by your PIN, change PIN or switch to a passphrase, auto-lock" width={780} height={1688} loading="lazy" decoding="async" />
               </div>
             </div>
           </div>
@@ -386,21 +344,35 @@ export default function Home() {
             <div className="sec-head" data-reveal>
               <span className="eyebrow">Roadmap</span>
               <h2>Working today. <em>Built to scale.</em></h2>
-              <p>The core is live as a testnet beta. Here’s the path from testnet to real money in millions of pockets.</p>
+              <p>The core is live as a testnet beta. Here’s the path from testnet to real money, in the order we will do it.</p>
             </div>
-            <div className="road">
-              {ROADMAP.map((r, i) => (
-                <div className={`road-col road-${r.state}`} key={r.phase} data-reveal style={{ transitionDelay: `${i * 90}ms` }}>
-                  <div className="road-phase">
-                    <span className="road-dot" />
-                    {r.phase}
+            <div className="road-layout">
+              <ol className="road-steps">
+                {ROADMAP.map((r, i) => (
+                  <li className={`road-step road-${r.state}`} key={r.phase} data-reveal style={{ transitionDelay: `${i * 90}ms` }}>
+                    <span className="road-marker" aria-hidden="true" />
+                    <div className="road-card">
+                      <div className="road-top">
+                        <span className="road-phase"><span className="road-dot" />{r.phase}</span>
+                        <span className="road-status">{r.status}</span>
+                      </div>
+                      <h3>{r.title}</h3>
+                      <p className="road-outcome">{r.outcome}</p>
+                      <ul>
+                        {r.items.map(it => <li key={it}>{it}</li>)}
+                      </ul>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+              <aside className="road-image" data-reveal>
+                <div className="stage stage-sm">
+                  <div className="device">
+                    <img src="/screens/road-mesh.webp" alt="The Wayamesh Mesh screen: payments held, messages carried and live relays" width={780} height={1688} loading="lazy" decoding="async" />
                   </div>
-                  <h3>{r.title}</h3>
-                  <ul>
-                    {r.items.map(it => <li key={it}>{it}</li>)}
-                  </ul>
                 </div>
-              ))}
+                <p>The Mesh screen: any phone can carry a signed payment and settle it for someone else.</p>
+              </aside>
             </div>
           </div>
         </section>
@@ -410,7 +382,7 @@ export default function Home() {
           <div className="wrap">
             <div className="partner-cta" data-reveal>
               <div className="photo photo-wide">
-                <img src="/photos/cta-handshake.webp" alt="Four business people greeting each other with handshakes in a bright café" width={900} height={560} loading="lazy" decoding="async" />
+                <img src="/photos/cta-meeting.webp" alt="Colleagues talking around a table in a bright meeting room" width={900} height={560} loading="lazy" decoding="async" />
               </div>
               <div className="partner-cta-body">
                 <span className="eyebrow">Partner with us</span>
@@ -468,6 +440,11 @@ export default function Home() {
               <span className="eyebrow">FAQ</span>
               <h2>Questions, <em>answered.</em></h2>
               <p>Something else? <a href={CONTACT} className="link-inline">Email us</a>.</p>
+              <div className="stage stage-xs" aria-hidden="true">
+                <div className="device">
+                  <img src="/screens/faq-chats.webp" alt="" width={780} height={1688} loading="lazy" decoding="async" />
+                </div>
+              </div>
             </div>
             <div className="faq-list">
               {FAQ.map(f => (

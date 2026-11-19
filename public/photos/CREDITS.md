@@ -1,16 +1,16 @@
 # Photo credits
 
-All photographs are free for commercial use without payment or attribution under the licences below. Credits are given anyway. Images were downloaded, resized and compressed to WebP; none are shown as real Wayamesh customers.
+All photographs are free for commercial use without payment or attribution under the licences below. Credits are given anyway. Images were downloaded, resized and compressed to WebP; none are shown as real Wayamesh customers, and none are captioned with names or places on the site.
 
-| File | Photographer | Source | Licence |
-| --- | --- | --- | --- |
-| aud-merchants.webp | Ali Mkumbwa | https://unsplash.com/photos/a-woman-standing-in-front-of-a-fruit-stand-holding-a-cell-phone-5dFuO02OHh0 | Unsplash License |
-| aud-families.webp | Muhammad-Taha Ibrahim | https://unsplash.com/photos/three-girls-looking-at-smartphone-HfC8mUqulJ8 | Unsplash License |
-| aud-aid.webp | mk_photoz | https://www.pexels.com/photo/healthcare-outreach-in-kaduna-nigeria-33132346/ | Pexels License |
-| aud-communities.webp | Ali Mkumbwa | https://unsplash.com/photos/a-man-standing-in-front-of-a-fruit-stand-giving-a-thumbs-up-WUG0QcXVh0k | Unsplash License |
-| band-city.webp | Namnso Ukpanah | https://unsplash.com/photos/aerial-photography-of-city-6UqJTfoXIq8 | Unsplash License |
-| story-vendor.webp | Ali Mkumbwa | https://unsplash.com/photos/a-man-in-an-apron-looking-at-a-cell-phone-uk3ey_vhDKA | Unsplash License |
-| cta-handshake.webp | Ninthgrid | https://unsplash.com/photos/a-group-of-people-shaking-hands-in-a-room-5-SNNmT_zkc | Unsplash License |
+| File | Where it is used | Photographer | Place shown | Source | Licence |
+| --- | --- | --- | --- | --- | --- |
+| aud-merchants.webp | Who it's for: Merchants | Thuyen Ngo | Vietnam (street food cart) | https://unsplash.com/photos/N18PrG7k35o | Unsplash License |
+| aud-families.webp | Who it's for: Families | Luis Becerra Fotografo | Guadalajara, Mexico | https://www.pexels.com/photo/a-family-with-three-kids-sitting-on-steps-in-front-of-a-church-16949264/ | Pexels License |
+| aud-aid.webp | Who it's for: Aid and NGOs | Rashpal Singh | Not stated (volunteers at a public event) | https://unsplash.com/photos/qKVSEuBT5EY | Unsplash License |
+| aud-communities.webp | Who it's for: Communities | Eduard Kiiko | Lviv, Ukraine | https://unsplash.com/photos/yxmHoTPBzAM | Unsplash License |
+| band-city.webp | The problem (stats band) | Shea Rouda | Los Angeles, United States | https://unsplash.com/photos/Vtl6cOhO87Y | Unsplash License |
+| story-vendor.webp | Story quote | Faris Mohammed | Istanbul, Turkiye | https://unsplash.com/photos/nTh7cY6jc_c | Unsplash License |
+| cta-meeting.webp | Partner with us | Memento Media | Not stated (meeting room) | https://unsplash.com/photos/2pPw5Glro5I | Unsplash License |
 
 The hero image is a frame from the project's own video (`/africa.mp4`, poster `/africa-poster.jpg`). The product screenshots in `public/screens/` are Wayamesh UI.
 
