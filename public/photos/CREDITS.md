@@ -4,10 +4,10 @@ All photographs are free for commercial use without payment or attribution under
 
 | File | Where it is used | Photographer | Place shown | Source | Licence |
 | --- | --- | --- | --- | --- | --- |
-| aud-merchants.webp | Who it's for: Merchants | Thuyen Ngo | Vietnam (street food cart) | https://unsplash.com/photos/N18PrG7k35o | Unsplash License |
+| aud-merchants.webp | Who it's for: Merchants | Ali Mkumbwa | Africa (exact place not stated) | https://unsplash.com/photos/a-man-standing-in-front-of-a-fruit-stand-giving-a-thumbs-up-WUG0QcXVh0k | Unsplash License |
 | aud-families.webp | Who it's for: Families | Luis Becerra Fotografo | Guadalajara, Mexico | https://www.pexels.com/photo/a-family-with-three-kids-sitting-on-steps-in-front-of-a-church-16949264/ | Pexels License |
-| aud-aid.webp | Who it's for: Aid and NGOs | Rashpal Singh | Not stated (volunteers at a public event) | https://unsplash.com/photos/qKVSEuBT5EY | Unsplash License |
-| aud-communities.webp | Who it's for: Communities | Eduard Kiiko | Lviv, Ukraine | https://unsplash.com/photos/yxmHoTPBzAM | Unsplash License |
+| aud-aid.webp | Who it's for: Aid and NGOs | mk_photoz | Kaduna, Nigeria (healthcare outreach) | https://www.pexels.com/photo/healthcare-outreach-in-kaduna-nigeria-33132346/ | Pexels License |
+| aud-communities.webp | Who it's for: Communities | Thuyen Ngo | Vietnam (street food cart) | https://unsplash.com/photos/N18PrG7k35o | Unsplash License |
 | band-city.webp | The problem (stats band) | Shea Rouda | Los Angeles, United States | https://unsplash.com/photos/Vtl6cOhO87Y | Unsplash License |
 | story-vendor.webp | Story quote | Faris Mohammed | Istanbul, Turkiye | https://unsplash.com/photos/nTh7cY6jc_c | Unsplash License |
 | cta-meeting.webp | Partner with us | Memento Media | Not stated (meeting room) | https://unsplash.com/photos/2pPw5Glro5I | Unsplash License |

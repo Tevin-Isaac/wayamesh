@@ -37,7 +37,7 @@ const STEPS = [
 const AUDIENCES = [
   {
     photo: '/photos/aud-merchants.webp',
-    alt: 'A street food vendor serving customers at his cart on a busy market street',
+    alt: 'A smiling fruit seller holding a phone and giving a thumbs up at his market stall',
     tag: 'Merchants',
     title: 'Take payments in the market, not just where there’s Wi-Fi',
     body: 'Stalls, kiosks and street vendors get paid in stable dollars on the spot, with no card machine and no failed transactions when the network drops.',
@@ -51,14 +51,14 @@ const AUDIENCES = [
   },
   {
     photo: '/photos/aud-aid.webp',
-    alt: 'Three volunteers in matching yellow shirts leaning on a barrier at a public event',
+    alt: 'A community health worker checking a patient’s blood pressure at an outdoor clinic',
     tag: 'Aid & NGOs',
     title: 'Cash assistance that reaches the last mile',
     body: 'Distribute funds that stay spendable in camps, rural areas and crisis zones, with every settled payment visible on-chain.',
   },
   {
     photo: '/photos/aud-communities.webp',
-    alt: 'People walking along a tram street in a city at golden hour',
+    alt: 'A street food vendor serving customers at his cart on a busy market street',
     tag: 'Communities',
     title: 'An economy that keeps running through a shutdown',
     body: 'When networks are cut, people can still buy food and pay rent. Payments queue up safely and clear when service returns.',
