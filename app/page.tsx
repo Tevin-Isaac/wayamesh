@@ -32,28 +32,28 @@ const STEPS = [
 const AUDIENCES = [
   {
     photo: '/photos/aud-merchants.webp',
-    alt: 'A shopper in a street market holding a phone',
+    alt: 'A smiling kiosk owner holding a phone at her market stall',
     tag: 'Merchants',
     title: 'Take payments in the market, not just where there’s Wi-Fi',
     body: 'Stalls, kiosks and boda riders get paid in stable dollars on the spot, with no card machine and no failed transactions when the network drops.',
   },
   {
     photo: '/photos/aud-families.webp',
-    alt: 'Two people at a table, each holding a phone',
+    alt: 'Three women and girls in bright patterned clothes looking at a phone together',
     tag: 'Families',
     title: 'Money sent home that is ready to spend',
     body: 'Relatives receive USDC and can pay the shop down the road with it, even in a village with one bar of signal.',
   },
   {
     photo: '/photos/aud-aid.webp',
-    alt: 'Two phones held side by side, one showing a QR code',
+    alt: 'A community health worker taking a patient’s blood pressure at an outdoor clinic',
     tag: 'Aid & NGOs',
     title: 'Cash assistance that reaches the last mile',
     body: 'Distribute funds that stay spendable in camps, rural areas and crisis zones, with every settled payment visible on-chain.',
   },
   {
     photo: '/photos/aud-communities.webp',
-    alt: 'A man holding a phone in a busy market street',
+    alt: 'A cheerful market trader with a thumbs up, phone in hand',
     tag: 'Communities',
     title: 'An economy that keeps running through a shutdown',
     body: 'When networks are cut, people can still buy food and pay rent. Payments queue up safely and clear when service returns.',
@@ -185,7 +185,7 @@ export default function Home() {
             </div>
           </div>
           <div className="band">
-            <img src="/photos/band-market.webp" alt="A market street where two people exchange payment on their phones" width={1600} height={700} loading="lazy" decoding="async" className="band-img" />
+            <img src="/photos/band-city.webp" alt="A West African city skyline at sunset with a mobile network mast on the horizon" width={1600} height={700} loading="lazy" decoding="async" className="band-img" />
             <div className="band-shade" aria-hidden="true" />
             <div className="wrap">
             <div className="stats">
@@ -230,7 +230,7 @@ export default function Home() {
                 <h3>Scan to pay</h3>
                 <p>Works between any two devices, phone or browser. On Android, Bluetooth hand-off is in beta.</p>
                 <div className="tile-art art-qr" aria-hidden="true">
-                  <img src="/screens/m-receive.webp" alt="" loading="lazy" />
+                  <img src="/screens/m-receive.webp" alt="" width={780} height={1688} loading="lazy" />
                 </div>
               </article>
 
@@ -254,7 +254,7 @@ export default function Home() {
                 </div>
                 <div className="browser" aria-hidden="true">
                   <div className="browser-bar"><span /><span /><span /><em>wayamesh.xyz/app</em></div>
-                  <img src="/screens/d-wallet.webp" alt="" loading="lazy" />
+                  <img src="/screens/d-wallet.webp" alt="" width={1280} height={800} loading="lazy" />
                 </div>
               </article>
               <article className="tile" data-reveal>
@@ -328,7 +328,7 @@ export default function Home() {
               <p>Why we’re building Wayamesh</p>
             </div>
             <div className="photo photo-tall" data-reveal>
-              <img src="/photos/story-handoff.webp" alt="A payment QR code shown on a phone and scanned by another phone" width={720} height={900} loading="lazy" decoding="async" />
+              <img src="/photos/story-vendor.webp" alt="A smiling food vendor in an apron looking at his phone" width={720} height={900} loading="lazy" decoding="async" />
             </div>
           </div>
         </section>
@@ -340,8 +340,9 @@ export default function Home() {
               <span className="eyebrow">Security</span>
               <h2>Trust built into <em>every payment.</em></h2>
               <p>Offline doesn’t mean unprotected. Every safeguard is enforced by code, not by promises.</p>
-              <figure className="device" aria-label="Wayamesh send screen">
-                <img src="/screens/m-send.webp" alt="The Wayamesh send screen on a phone" width={390} height={844} loading="lazy" decoding="async" />
+              <figure className="browser browser-flat">
+                <div className="browser-bar" aria-hidden="true"><span /><span /><span /><em>wayamesh.xyz/app</em></div>
+                <img src="/screens/d-send.webp" alt="The Wayamesh send screen in the web wallet" width={1280} height={800} loading="lazy" decoding="async" />
               </figure>
             </div>
             <div className="sec-grid">
@@ -390,7 +391,7 @@ export default function Home() {
           <div className="wrap">
             <div className="partner-cta" data-reveal>
               <div className="photo photo-wide">
-                <img src="/photos/cta-table.webp" alt="Two people at a table comparing payments on their phones" width={900} height={560} loading="lazy" decoding="async" />
+                <img src="/photos/cta-handshake.webp" alt="Four business people greeting each other with handshakes in a bright café" width={900} height={560} loading="lazy" decoding="async" />
               </div>
               <div className="partner-cta-body">
                 <span className="eyebrow">Partner with us</span>
@@ -435,8 +436,7 @@ export default function Home() {
               </p>
             </div>
             <div className="get-phones" data-reveal aria-hidden="true">
-              <Phone src="/screens/m-receive.webp" alt="" className="phone-back" />
-              <Phone src="/screens/m-wallet.webp" alt="" className="phone-front" />
+              <Phone src="/screens/m-send.webp" alt="" className="phone-front" />
             </div>
           </div>
         </section>

@@ -532,8 +532,8 @@ p { text-wrap: pretty; }
 .security { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 64px; align-items: start; }
 .security .sec-head { margin-bottom: 0; }
 .sec-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-.device { margin-top: 36px; width: 240px; height: 300px; overflow: hidden; border-radius: 28px 28px 0 0; padding: 7px 7px 0; background: #1b222b; box-shadow: 0 0 0 1px var(--line); }
-.device img { border-radius: 22px 22px 0 0; width: 100%; height: auto; }
+.security .browser-flat { flex: none; width: 100%; max-width: 520px; margin-top: 36px; border: 1px solid var(--line); border-radius: var(--radius); }
+.browser-flat img { width: 100%; height: auto; }
 .sec-card {
   padding: 24px;
   border-radius: var(--radius);
@@ -619,7 +619,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .fine a { color: rgba(255, 255, 255, 0.75); text-decoration: underline; text-underline-offset: 3px; }
 .get-phones { position: relative; height: 560px; align-self: end; }
 .get-phones .phone { width: 250px; }
-.get-phones .phone-front { left: 50%; bottom: -120px; transform: translateX(-10%); }
+.get-phones .phone-front { left: 50%; bottom: -120px; transform: translateX(-50%); }
 .get-phones .phone-back { left: 50%; bottom: -60px; transform: translateX(-95%) rotate(-7deg); opacity: 0.6; }
 
 /* FAQ */
@@ -701,7 +701,6 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   .story { padding: 64px 0; }
   .partner-cta { padding: 16px; }
   .partner-cta-actions .btn { flex: 1 1 100%; }
-  .device { width: 200px; height: 260px; }
   .get-phones .phone { width: 200px; }
   .foot-grid { grid-template-columns: 1fr 1fr; }
 }
