@@ -22,8 +22,16 @@ export const metadata: Metadata = {
     description: "Pay face to face with no signal. Settles the moment either phone reconnects.",
     url: "https://wayamesh.xyz",
     siteName: "Wayamesh",
-    images: ["/africa-poster.jpg"],
+    images: [{ url: "/og-card.png", width: 1200, height: 630, alt: "Wayamesh: money that keeps moving when the internet stops" }],
+    type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Wayamesh — Digital dollars that work offline",
+    description: "Pay face to face with no signal. Settles the moment either phone reconnects.",
+    images: ["/og-card.png"],
+  },
+  alternates: { canonical: "/" },
 };
 
 export default function RootLayout({
@@ -46,7 +54,10 @@ export default function RootLayout({
         {/* Reveal animations only run when JS is on; without it everything is visible. */}
         <script dangerouslySetInnerHTML={{ __html: `document.documentElement.classList.add('js')` }} />
       </head>
-      <body>{children}</body>
+      <body>
+        <a href="#main" className="skip">Skip to content</a>
+        {children}
+      </body>
     </html>
   );
 }

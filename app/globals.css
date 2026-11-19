@@ -375,7 +375,7 @@ p { text-wrap: pretty; }
 }
 .browser-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-bottom: 1px solid var(--line); }
 .browser-bar span { width: 10px; height: 10px; border-radius: 50%; background: #d9d8d2; }
-.browser-bar em { font-style: normal; font-size: 12px; color: var(--faint); margin-left: 12px; }
+.browser-bar em { font-style: normal; font-size: 12px; color: var(--muted); margin-left: 12px; }
 
 /* How it works */
 .steps {
@@ -472,7 +472,7 @@ p { text-wrap: pretty; }
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--faint);
+  color: var(--muted);
   margin-bottom: 18px;
 }
 .road-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--dot); }
@@ -556,7 +556,7 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .foot-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 56px; border-bottom: 1px solid var(--ink-line); }
 .foot .nav-brand { color: #fff; margin-bottom: 14px; }
 .foot-col { display: flex; flex-direction: column; gap: 12px; }
-.foot-col h4 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+.foot-col h3 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
 .foot-col a:hover { color: #fff; }
 .foot-base { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding-top: 28px; font-size: 13px; color: rgba(255, 255, 255, 0.55); }
 
@@ -777,3 +777,26 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   .demo-bar i.run { animation: none; width: 100%; }
   .band-img { transform: none; height: 100%; top: 0; }
 }
+
+/* Skip link, legal pages */
+.skip { position: fixed; left: 12px; top: -60px; z-index: 100; padding: 10px 16px; border-radius: 8px; background: var(--text); color: var(--paper); font-weight: 600; transition: top 0.2s; }
+.skip:focus { top: 12px; }
+main:focus { outline: none; }
+.foot-legal { display: inline-flex; gap: 18px; }
+.foot-legal a:hover { color: #fff; }
+.legal-bar { border-bottom: 1px solid var(--line); background: var(--paper); }
+.legal-bar-in { height: 64px; display: flex; align-items: center; justify-content: space-between; }
+.legal { max-width: 760px; padding-top: 56px; padding-bottom: 96px; }
+.legal-draft { display: inline-block; font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text); background: var(--brand-wash); border: 1px solid var(--line); padding: 4px 10px; border-radius: 6px; margin-bottom: 18px; }
+.legal h1 { font-size: clamp(32px, 4.2vw, 44px); margin-bottom: 10px; }
+.legal-meta { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+.legal-intro { font-size: 17.5px; color: var(--muted); margin-bottom: 36px; }
+.legal h2 { font-size: 21px; letter-spacing: -0.02em; margin: 36px 0 12px; }
+.legal li::marker { color: var(--muted); }
+.legal p, .legal li { font-size: 16px; color: var(--text); line-height: 1.7; }
+.legal p { margin-bottom: 12px; }
+.legal ul { list-style: disc; padding-left: 22px; display: grid; gap: 8px; margin-bottom: 12px; }
+.legal code { font-family: var(--font-geist-mono), monospace; font-size: 0.9em; background: var(--soft); padding: 1px 6px; border-radius: 4px; }
+.legal-back { margin-top: 44px; }
+.legal-foot { border-top: 1px solid var(--line); padding: 24px 0; font-size: 13.5px; color: var(--muted); }
+.legal-foot .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px 24px; }

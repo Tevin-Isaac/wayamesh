@@ -3,13 +3,14 @@ import Nav from './components/Nav';
 import HeroVideo from './components/HeroVideo';
 import Reveal from './components/Reveal';
 import Marquee from './components/Marquee';
+import { CONTACT_EMAIL } from './site';
 import Demo from './components/Demo';
 import SocialLinks from './components/SocialLinks';
 
 const APK = 'https://github.com/Tevin-Isaac/wayamesh-mobile/releases/latest/download/wayamesh-beta.apk';
-const ARCSCAN = 'https://testnet.arcscan.app/address/0xd619b77bb8389a632800c300969ef152099f7691';
+const ARCSCAN = 'https://explorer.testnet.arc.io/address/0xd619b77bb8389a632800c300969ef152099f7691';
 const SECURITY_NOTES = 'https://github.com/Tevin-Isaac/wayamesh-mobile/blob/master/SECURITY.md';
-const CONTACT = 'mailto:isaactevin67@gmail.com';
+const CONTACT = `mailto:${CONTACT_EMAIL}`;
 
 const STATS = [
   { n: '1.4B', l: 'adults worldwide have no bank account', src: 'World Bank Global Findex, 2021' },
@@ -117,7 +118,7 @@ export default function Home() {
       <Reveal />
       <Nav />
 
-      <main id="top">
+      <main id="main">
         {/* ── Hero ───────────────────────────────────────── */}
         <section className="hero">
           <div className="wrap hero-grid">
@@ -434,7 +435,7 @@ export default function Home() {
       <footer className="foot">
         <div className="wrap foot-grid">
           <div className="foot-brand">
-            <a href="#top" className="nav-brand">
+            <a href="#main" className="nav-brand">
               <img src="/wayamesh-logo-v3.svg" alt="" width={28} height={28} />
               <span>Wayamesh</span>
             </a>
@@ -442,21 +443,21 @@ export default function Home() {
             <SocialLinks />
           </div>
           <div className="foot-col">
-            <h4>Product</h4>
+            <h3>Product</h3>
             <a href="#product">Features</a>
             <a href="#how">How it works</a>
             <a href="/app">Web wallet</a>
             <a href={APK}>Android beta</a>
           </div>
           <div className="foot-col">
-            <h4>Company</h4>
+            <h3>Company</h3>
             <a href="#who">Who it’s for</a>
             <a href="#roadmap">Roadmap</a>
             <a href="#security">Security</a>
             <a href={CONTACT}>Contact</a>
           </div>
           <div className="foot-col">
-            <h4>Resources</h4>
+            <h3>Resources</h3>
             <a href={SECURITY_NOTES} target="_blank" rel="noopener noreferrer">Security notes</a>
             <a href={ARCSCAN} target="_blank" rel="noopener noreferrer">Contract on ArcScan</a>
             <a href="#faq">FAQ</a>
@@ -465,6 +466,7 @@ export default function Home() {
         </div>
         <div className="wrap foot-base">
           <span>© 2026 Wayamesh</span>
+          <span className="foot-legal"><a href="/privacy">Privacy</a><a href="/terms">Terms</a></span>
           <span>Testnet beta on Arc. Test USDC only, no real funds.</span>
         </div>
       </footer>

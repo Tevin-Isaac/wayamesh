@@ -30,7 +30,7 @@ export default function Nav() {
   return (
     <header className={`nav${scrolled ? ' nav-scrolled' : ''}${open ? ' nav-open' : ''}`}>
       <div className="nav-inner wrap">
-        <a href="#top" className="nav-brand" aria-label="Wayamesh home">
+        <a href="#main" className="nav-brand" aria-label="Wayamesh home">
           <img src="/wayamesh-logo-v3.svg" alt="" width={28} height={28} />
           <span>Wayamesh</span>
         </a>
