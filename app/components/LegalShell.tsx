@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import ThemeToggle from './ThemeToggle';
 
-const UPDATED = '19 November 2026';
+const UPDATED = '20 November 2026';
 
 export default function LegalShell({ title, intro, children }: { title: string; intro: string; children: React.ReactNode }) {
   return (
