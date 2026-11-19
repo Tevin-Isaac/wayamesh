@@ -803,3 +803,14 @@ main:focus { outline: none; }
 .to-top:focus-visible { outline: 2px solid var(--brand); outline-offset: 3px; }
 @media (prefers-reduced-motion: reduce) { .to-top { transition: none; } }
 @media (max-width: 640px) { .to-top { right: 14px; bottom: 14px; width: 44px; height: 44px; } }
+
+/* Security: links row with the verified-contract status chip */
+.sec-links { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 18px; margin-top: 4px; }
+.status-chip {
+  display: inline-flex; align-items: center; gap: 9px; padding: 6px 13px 6px 10px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--card); color: var(--text); font-size: 13.5px;
+  transition: border-color 0.2s, transform 0.2s var(--ease);
+}
+.status-chip:hover { border-color: var(--brand-ink); transform: translateY(-1px); }
+.status-chip .ti { font-size: 14px; opacity: 0.6; }
+.sec-links .link { margin: 0; }

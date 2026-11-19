@@ -123,11 +123,8 @@ export default function Home() {
               <div className="chips" data-reveal>
                 <a href="#roadmap" className="pill">
                   <span className="pill-dot" />
-                  Testnet beta · test USDC
-                </a>
-                <a href={ARCSCAN} className="pill pill-ext" target="_blank" rel="noopener noreferrer">
-                  Live on Arc Testnet
-                  <i className="ti ti-arrow-up-right" aria-hidden="true" />
+                  Roadmap
+                  <i className="ti ti-arrow-right" aria-hidden="true" />
                 </a>
               </div>
               <h1 data-reveal>
@@ -302,9 +299,16 @@ export default function Home() {
               <span className="eyebrow">Security</span>
               <h2>Trust built into <em>every payment.</em></h2>
               <p>Offline doesn’t mean unprotected. Every safeguard is enforced by code, not by promises.</p>
-              <a href={SECURITY_NOTES} className="link" target="_blank" rel="noopener noreferrer">
-                Security notes <i className="ti ti-arrow-up-right" aria-hidden="true" />
-              </a>
+              <div className="sec-links">
+                <a href={SECURITY_NOTES} className="link" target="_blank" rel="noopener noreferrer">
+                  Security notes <i className="ti ti-arrow-up-right" aria-hidden="true" />
+                </a>
+                <a href={ARCSCAN} className="status-chip" target="_blank" rel="noopener noreferrer">
+                  <span className="pill-dot" />
+                  Live on Arc Testnet
+                  <i className="ti ti-arrow-up-right" aria-hidden="true" />
+                </a>
+              </div>
               <figure className="browser browser-flat">
                 <div className="browser-bar" aria-hidden="true"><span /><span /><span /><em>wayamesh.xyz/app</em></div>
                 <img src="/screens/d-send.webp" alt="The Wayamesh send screen in the web wallet" width={1280} height={800} loading="lazy" decoding="async" />
